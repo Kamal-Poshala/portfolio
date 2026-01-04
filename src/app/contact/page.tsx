@@ -1,15 +1,17 @@
 export default function ContactPage() {
   return (
-    <section>
-      <h1 className="text-3xl font-bold mb-6">Contact</h1>
+    <section className="max-w-3xl mx-auto text-center px-4 sm:px-0">
+      <h1 className="text-3xl font-bold mb-6">
+        Contact
+      </h1>
 
-      <p className="mb-6 text-gray-700 max-w-2xl">
+      <p className="mb-8 text-gray-700">
         I am open to full-time and internship opportunities in full-stack,
-        backend, and systems engineering roles. Feel free to reach out through
-        any of the channels below.
+        backend, and systems engineering roles. Feel free to reach out
+        through any of the channels below.
       </p>
 
-      <ul className="space-y-4">
+      <ul className="space-y-4 text-gray-700">
         <li>
           <strong>Email:</strong>{" "}
           <a
@@ -19,6 +21,7 @@ export default function ContactPage() {
             kamalposhalap@gmail.com
           </a>
         </li>
+
         <li>
           <strong>GitHub:</strong>{" "}
           <a
@@ -29,6 +32,7 @@ export default function ContactPage() {
             github.com/Kamal-Poshala
           </a>
         </li>
+
         <li>
           <strong>LinkedIn:</strong>{" "}
           <a

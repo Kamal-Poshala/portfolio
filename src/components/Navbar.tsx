@@ -13,11 +13,12 @@ export default function Navbar() {
 
   return (
     <nav className="bg-white border-b">
-      <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <Link href="/" className="font-semibold text-lg">
           Kamal Poshala
         </Link>
-        <div className="space-x-6 text-sm">
+
+        <div className="flex space-x-4 sm:space-x-6 text-sm">
           <Link href="/projects" className={linkClass("/projects")}>
             Projects
           </Link>
