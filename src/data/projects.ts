@@ -23,6 +23,7 @@ export const projects = [
       "Developed a high-performance multilingual analysis engine leveraging transformer-based models (mBERT) for accurate polarization detection and sentiment analysis across language barriers.",
     tech: ["Python", "PyTorch", "HuggingFace", "mBERT"],
     repoLink: "https://github.com/Kamal-Poshala/multilingual_polarization_detection",
+    demoLink: "/multilingual.pdf",
   },
   {
     title: "CogniFetch – Search and Retrieval Engine",
