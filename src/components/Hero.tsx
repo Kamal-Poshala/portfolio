@@ -28,7 +28,7 @@ export default function Hero() {
                     </h2>
 
                     <p className="text-xl text-gray-400 leading-relaxed max-w-2xl">
-                        I engineer high-performance full-stack applications and intelligent AI ecosystems, transforming innovative concepts into robust, scalable, and data-driven solutions.
+                        I am a <strong>CS Master's Student</strong> and Engineer building high-performance full-stack applications and intelligent AI ecosystems, transforming innovative concepts into robust, scalable solutions.
                     </p>
 
                     <div className="flex flex-wrap gap-4 pt-4">
