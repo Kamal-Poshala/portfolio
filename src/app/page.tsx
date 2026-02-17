@@ -1,42 +1,30 @@
+import Hero from "@/components/Hero";
+import Skills from "@/components/Skills";
+import Experience from "@/components/Experience";
+import Education from "@/components/Education";
+import Projects from "@/components/Projects";
+import Section from "@/components/Section";
+
 export default function Home() {
   return (
-    <section className="text-center">
-      <h1 className="text-3xl sm:text-4xl font-bold mb-4">
-        Full-Stack Software Developer
-      </h1>
+    <div className="space-y-0">
+      <Hero />
 
-      <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
-        Backend & Distributed Systems · Applied Machine Learning
-      </p>
+      <Section id="skills" title="Technical Skills" className="bg-secondary/20">
+        <Skills />
+      </Section>
 
-      <p className="max-w-3xl mx-auto text-sm sm:text-base text-gray-700 leading-relaxed">
-        Master’s student in Computer Science with hands-on experience building
-        scalable full-stack applications, backend workflows, and distributed
-        systems. Strong focus on API design, workflow automation, performance
-        modeling, and data-driven systems.
-      </p>
+      <Section id="experience" title="Work Experience">
+        <Experience />
+      </Section>
 
-      <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-        <a
-          href="/projects"
-          className="px-6 py-2 bg-black text-white rounded-md text-sm"
-        >
-          View Projects
-        </a>
-        <a
-          href="https://github.com/Kamal-Poshala"
-          target="_blank"
-          className="px-6 py-2 border rounded-md text-sm"
-        >
-          GitHub
-        </a>
-        <a
-          href="/resume"
-          className="px-6 py-2 border rounded-md text-sm"
-        >
-          Resume
-        </a>
-      </div>
-    </section>
+      <Section id="projects" title="Featured Projects" subtitle="A selection of my recent work in distributed systems and ML.">
+        <Projects />
+      </Section>
+
+      <Section id="education" title="Education" className="bg-secondary/20">
+        <Education />
+      </Section>
+    </div>
   );
 }
