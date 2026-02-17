@@ -55,19 +55,31 @@ Instead of outputting a class label (0 or 1), the model learns to *generate* the
 
 My work targeted the bottlenecks of the previous two approaches: **Efficiency** and **Generalization**.
 
-### The Innovation: Low-Rank Adaptation (LoRA)
-Training massive multilingual models is computationally expensive. I implemented LoRA to inject trainable rank decomposition matrices into the frozen transformer layers.
+### The Innovation: Low-Rank Adaptation (LoRA) Variants
+Training massive multilingual models is computationally expensive. I implemented **three distinct LoRA strategies** to find the optimal architecture:
+
+#### 1. Multilingual LoRA (Winner 🏆)
+*   **Method:** A single set of LoRA adapters shared across all 22 languages.
+*   **Result:** Superior cross-lingual transfer. Low-resource languages "borrowed" reasoning from high-resource ones.
+
+#### 2. Per-Language LoRA
+*   **Method:** Training separate adapters for each language (e.g., one for Hindi, one for Spanish).
+*   **Result:** High performance on high-resource languages but **failed to generalize** for low-resource ones due to lack of shared knowledge.
+
+#### 3. MixLoRA (Mixture of Experts)
+*   **Method:** A dynamic routing mechanism that selects different LoRA experts on-the-fly.
+*   **Result:** showed promise but suffered from **routing instability** in our experiments, often underperforming the simpler Multilingual LoRA.
 
 $$ W' = W + BA $$
 
 *   **Parameter Reduction:** Reduced trainable parameters by **98%** (from ~178M to ~2.4M).
-*   **Result:** By freezing the base model ("catastrophic forgetting" prevention), LoRA achieved superior cross-lingual transfer. It allowed **Low-Resource Languages** (Hausa, Oromo) to "borrow" reasoning capabilities from high-resource ones.
+*   **Key Outcome:** By freezing the base model ("catastrophic forgetting" prevention), Multilingual LoRA achieved the best balance of plasticity and stability.
 
-| Metric | Full Fine-Tuning | LoRA (My Work) | Impact |
+| Metric | Full Fine-Tuning | Multilingual LoRA | Per-Language LoRA |
 | :--- | :--- | :--- | :--- |
-| **Trainable Params** | 100% | **2%** | 50x Efficiency |
-| **Memory Footprint** | High (VRAM Heavy) | **Low** | Runs on Consumer GPU |
-| **Low-Resource F1** | 0.60 | **0.82** | **+36% Improvement** |
+| **Trainable Params** | 100% | **2%** | 2% per lang |
+| **Cross-Lingual Transfer** | Moderate | **High** | None |
+| **Low-Resource F1** | 0.60 | **0.82** | 0.45 |
 
 ---
 
