@@ -76,22 +76,50 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
 
                 <hr className="border-white/10 mb-16 max-w-3xl mx-auto" />
 
-                <div className="prose prose-xl prose-invert max-w-3xl mx-auto
-                    prose-headings:text-white prose-headings:font-bold prose-headings:tracking-tight
-                    prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-8 prose-h2:border-l-4 prose-h2:border-blue-500 prose-h2:pl-6
-                    prose-h3:text-2xl prose-h3:text-blue-200 prose-h3:mt-12
-                    prose-p:text-gray-300 prose-p:leading-8 prose-p:mb-8 prose-p:font-light
-                    prose-a:text-blue-400 prose-a:font-medium prose-a:no-underline hover:prose-a:text-blue-300 hover:prose-a:underline transition-color
-                    prose-strong:text-white prose-strong:font-semibold
-                    prose-ul:list-disc prose-ul:pl-0 prose-ul:my-8
-                    prose-li:text-gray-300 prose-li:leading-8 prose-li:mb-4 prose-li:ml-6
-                    prose-table:w-full prose-table:my-12 prose-table:border-separate prose-table:border-spacing-0 prose-table:rounded-xl prose-table:overflow-hidden prose-table:border prose-table:border-white/10
-                    prose-th:bg-white/5 prose-th:text-white prose-th:font-semibold prose-th:p-4 prose-th:text-left prose-th:border-b prose-th:border-white/10
-                    prose-td:p-4 prose-td:border-b prose-td:border-white/5 prose-td:text-gray-300
-                    prose-pre:bg-[#0F0F15] prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-pre:p-6 prose-pre:shadow-2xl
-                    prose-blockquote:border-l-4 prose-blockquote:border-violet-500 prose-blockquote:bg-violet-500/5 prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:rounded-r-lg prose-blockquote:text-gray-200 prose-blockquote:not-italic"
-                >
-                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                <div className="prose prose-xl prose-invert max-w-4xl mx-auto pb-20">
+                    <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
+                        components={{
+                            h2: ({ node, ...props }) => (
+                                <div className="mt-20 mb-8 border-b border-white/10 pb-4">
+                                    <h2 className="text-3xl font-bold text-white tracking-tight flex items-center gap-3" {...props} />
+                                    <div className="h-1 w-20 bg-blue-500 rounded-full mt-4" />
+                                </div>
+                            ),
+                            h3: ({ node, ...props }) => (
+                                <h3 className="text-2xl font-semibold text-blue-200 mt-12 mb-6 flex items-center gap-2" {...props} />
+                            ),
+                            p: ({ node, ...props }) => (
+                                <p className="text-gray-300 leading-8 mb-6 text-lg font-light tracking-wide" {...props} />
+                            ),
+                            table: ({ node, ...props }) => (
+                                <div className="my-10 overflow-hidden rounded-xl border border-white/10 shadow-2xl bg-[#0F0F15]">
+                                    <table className="w-full border-collapse" {...props} />
+                                </div>
+                            ),
+                            thead: ({ node, ...props }) => (
+                                <thead className="bg-white/5 text-white" {...props} />
+                            ),
+                            th: ({ node, ...props }) => (
+                                <th className="p-5 text-left font-semibold border-b border-white/10 text-sm tracking-wider uppercase text-blue-300" {...props} />
+                            ),
+                            tr: ({ node, ...props }) => (
+                                <tr className="border-b border-white/5 hover:bg-white/5 transition-colors" {...props} />
+                            ),
+                            td: ({ node, ...props }) => (
+                                <td className="p-5 text-gray-300 text-base" {...props} />
+                            ),
+                            blockquote: ({ node, ...props }) => (
+                                <blockquote className="my-8 border-l-4 border-blue-500 bg-blue-500/10 p-6 rounded-r-lg italic text-lg text-blue-100" {...props} />
+                            ),
+                            ul: ({ node, ...props }) => (
+                                <ul className="my-6 space-y-3 list-disc list-inside text-gray-300" {...props} />
+                            ),
+                            li: ({ node, ...props }) => (
+                                <li className="pl-2 leading-7" {...props} />
+                            ),
+                        }}
+                    >
                         {postData.contentHtml}
                     </ReactMarkdown>
                 </div>
