@@ -39,5 +39,6 @@ export const education = [
     degree: "B.Tech in Information Technology",
     period: "Aug 2020– May 2024",
     location: "Hyderabad, India",
+    description: "Final CGPA: 9.08/10.0 (Distinctive Academic Achievement)",
   },
 ];
