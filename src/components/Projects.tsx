@@ -1,7 +1,7 @@
 "use client";
 
 import { projects } from "@/data/projects";
-import { Github, Code2 } from "lucide-react";
+import { Github, Code2, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Projects() {
@@ -31,6 +31,17 @@ export default function Projects() {
                                         title="View Code"
                                     >
                                         <Github className="w-5 h-5" />
+                                    </a>
+                                )}
+                                {project.demoLink && (
+                                    <a
+                                        href={project.demoLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+                                        title="View Live Demo"
+                                    >
+                                        <ExternalLink className="w-5 h-5" />
                                     </a>
                                 )}
                             </div>

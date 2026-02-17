@@ -6,6 +6,7 @@ export const projects = [
       "Built a premium real-time collaboration platform enabling multiple users to edit documents, chat, and manage projects with live presence tracking. Features JWT-based security, modular socket logic, and throttled MongoDB persistence.",
     tech: ["React", "Node.js", "Socket.IO", "Tiptap", "MongoDB", "Tailwind"],
     repoLink: "https://github.com/Kamal-Poshala/syncspace",
+    demoLink: "https://syncspace-frontend-six.vercel.app/",
   },
   {
     title: "Internship Program Management System (IPMS)",
