@@ -39,25 +39,4 @@ export const projects = [
     tech: ["Solidity", "Hardhat", "React", "IPFS"],
     repoLink: "https://github.com/Kamal-Poshala/decentralized-freelance-marketplace",
   },
-  {
-    title: "Distributed Operating Systems Models",
-    category: "Systems & Performance",
-    description:
-      "Modeled Internet Path latency and Hospital Emergency Department queueing behavior under varying workloads.",
-    tech: ["Python", "Queueing Models", "Performance Metrics", "Linux"],
-  },
-  {
-    title: "Multiclass Emotion Recognition from EEG Signals",
-    category: "Applied Machine Learning",
-    description:
-      "Hybrid ML framework combining feature-based models and deep learning for EEG-based emotion classification.",
-    tech: ["Python", "PyTorch", "EEGNet", "BiLSTM", "scikit-learn"],
-  },
-  {
-    title: "Persistent Systems – Martian Internship Program",
-    category: "Industry Training",
-    description:
-      "Industry-oriented training in Java, Linux, DBMS, and algorithmic problem solving.",
-    tech: ["Java", "Linux", "DBMS"],
-  },
 ];
