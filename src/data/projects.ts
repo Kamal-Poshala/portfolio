@@ -13,31 +13,15 @@ export const projects = [
     description:
       "Designed distributed role-based access control system with secure JWT authentication. Implemented 15+ REST endpoints handling 1K+ transactional events with centralized logging. Automated escalation/notification pipelines using cron-based schedulers, reducing approval turnaround by 40%.",
     tech: ["Node.js", "MongoDB", "Express", "Distributed Workflow", "Cron"],
-    repoLink: "https://github.com/Kamal-Poshala/internship-management-system",
+    repoLink: "https://github.com/Kamal-Poshala/IPMS",
   },
   {
-    title: "Multilingual NLP Translation Engine",
+    title: "Multilingual Polarization Detection",
     category: "NLP / Machine Learning",
     description:
-      "Developed a high-performance multilingual translation and analysis engine capable of processing text in 5+ languages. Leveraged transformer-based models (mBERT) for accurate sentiment analysis and entity extraction across language barriers.",
-    tech: ["Python", "PyTorch", "HuggingFace", "FastAPI", "Docker"],
-    repoLink: "https://github.com/Kamal-Poshala/multilingual-nlp-engine",
-  },
-  {
-    title: "Distributed Operating Systems Models",
-    category: "Systems & Performance",
-    description:
-      "Modeled Internet Path latency and Hospital Emergency Department queueing behavior under varying workloads.",
-    tech: ["Python", "Queueing Models", "Performance Metrics", "Linux"],
-    repoLink: "https://github.com/Kamal-Poshala/distributed-systems-models",
-  },
-  {
-    title: "Multiclass Emotion Recognition from EEG Signals",
-    category: "Applied Machine Learning",
-    description:
-      "Hybrid ML framework combining feature-based models and deep learning for EEG-based emotion classification.",
-    tech: ["Python", "PyTorch", "EEGNet", "BiLSTM", "scikit-learn"],
-    repoLink: "https://github.com/Kamal-Poshala/eeg-emotion-recognition",
+      "Developed a high-performance multilingual analysis engine leveraging transformer-based models (mBERT) for accurate polarization detection and sentiment analysis across language barriers.",
+    tech: ["Python", "PyTorch", "HuggingFace", "mBERT"],
+    repoLink: "https://github.com/Kamal-Poshala/multilingual_polarization_detection",
   },
   {
     title: "CogniFetch – Search and Retrieval Engine",
@@ -45,15 +29,7 @@ export const projects = [
     description:
       "Engineered relevance-based document retrieval system leveraging TF-IDF ranking across 10K+ indexed academic documents. Designed OCR and NLP ingestion framework converting 2K+ unstructured PDFs into structured searchable collections. Reduced query latency by 45%.",
     tech: ["Node.js", "MongoDB", "NLP", "OCR", "React"],
-    repoLink: "https://github.com/Kamal-Poshala/cognifetch",
-  },
-  {
-    title: "Persistent Systems – Martian Internship Program",
-    category: "Industry Training",
-    description:
-      "Industry-oriented training in Java, Linux, DBMS, and algorithmic problem solving.",
-    tech: ["Java", "Linux", "DBMS"],
-    repoLink: "https://github.com/Kamal-Poshala/martian-internship",
+    repoLink: "https://github.com/Kamal-Poshala/CogniFetch",
   },
   {
     title: "Decentralized Freelance Marketplace",
@@ -61,6 +37,27 @@ export const projects = [
     description:
       "Ethereum-based freelance marketplace with escrow payments and decentralized dispute resolution.",
     tech: ["Solidity", "Hardhat", "React", "IPFS"],
-    repoLink: "https://github.com/Kamal-Poshala/decentralized-marketplace",
+    repoLink: "https://github.com/Kamal-Poshala/decentralized-freelance-marketplace",
+  },
+  {
+    title: "Distributed Operating Systems Models",
+    category: "Systems & Performance",
+    description:
+      "Modeled Internet Path latency and Hospital Emergency Department queueing behavior under varying workloads.",
+    tech: ["Python", "Queueing Models", "Performance Metrics", "Linux"],
+  },
+  {
+    title: "Multiclass Emotion Recognition from EEG Signals",
+    category: "Applied Machine Learning",
+    description:
+      "Hybrid ML framework combining feature-based models and deep learning for EEG-based emotion classification.",
+    tech: ["Python", "PyTorch", "EEGNet", "BiLSTM", "scikit-learn"],
+  },
+  {
+    title: "Persistent Systems – Martian Internship Program",
+    category: "Industry Training",
+    description:
+      "Industry-oriented training in Java, Linux, DBMS, and algorithmic problem solving.",
+    tech: ["Java", "Linux", "DBMS"],
   },
 ];
