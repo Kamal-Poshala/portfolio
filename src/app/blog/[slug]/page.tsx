@@ -63,12 +63,17 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
             </header>
 
             <div className="prose prose-invert prose-lg max-w-none 
-                prose-headings:text-white prose-headings:font-bold prose-h2:text-3xl prose-h3:text-2xl 
-                prose-p:text-gray-300 prose-p:leading-relaxed 
-                prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
-                prose-strong:text-white prose-code:text-primary prose-code:bg-primary/10 prose-code:px-1 prose-code:rounded
-                prose-ul:list-disc prose-ul:pl-6 prose-li:text-gray-300
-                prose-pre:bg-card/50 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl"
+                prose-headings:text-white prose-headings:font-bold prose-h2:text-4xl prose-h2:mt-12 prose-h2:mb-6
+                prose-h3:text-2xl prose-h3:text-blue-400 prose-h3:mt-8 prose-h3:mb-4
+                prose-p:text-gray-300 prose-p:leading-8 prose-p:mb-6 prose-p:text-lg
+                prose-a:text-primary prose-a:font-semibold prose-a:no-underline hover:prose-a:underline
+                prose-strong:text-white prose-strong:font-semibold
+                prose-code:text-primary prose-code:bg-primary/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md
+                prose-ul:list-disc prose-ul:pl-6 prose-li:text-gray-300 prose-li:leading-8 prose-li:mb-2
+                prose-table:w-full prose-table:border-collapse prose-table:my-8
+                prose-th:text-left prose-th:p-4 prose-th:bg-white/5 prose-th:text-white prose-th:border prose-th:border-white/10
+                prose-td:p-4 prose-td:border prose-td:border-white/10 prose-td:text-gray-300
+                prose-pre:bg-card/50 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-pre:p-6"
             >
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>
                     {postData.contentHtml}
