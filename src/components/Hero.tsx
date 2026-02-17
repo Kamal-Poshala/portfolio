@@ -15,19 +15,20 @@ export default function Hero() {
                 className="flex flex-col md:flex-row items-center gap-12 max-w-6xl w-full"
             >
                 <div className="space-y-6 flex-1">
-                    <span className="px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium inline-block">
+                    <span className="px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium inline-block mb-4">
                         Available for Hire
                     </span>
 
-                    <h1 className="text-5xl sm:text-7xl font-bold tracking-tight text-white leading-[1.1]">
-                        Engineering Intelligent <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-violet-500">
-                            Full-Stack AI Solutions
-                        </span>
+                    <h1 className="text-6xl sm:text-8xl font-bold tracking-tight text-white leading-none mb-2">
+                        Kamal Poshala
                     </h1>
 
-                    <p className="text-xl sm:text-2xl text-gray-400 leading-relaxed">
-                        I'm <strong>Kamal Poshala</strong>, a Full-Stack System Engineer bridging the gap between robust backend architectures and intelligent AI/ML solutions. I crave building systems that are not only performant and scalable but also driven by data.
+                    <h2 className="text-2xl sm:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-violet-500 mb-6">
+                        Full-Stack System Engineer <span className="text-gray-500 mx-2">|</span> AI & Distributed Systems
+                    </h2>
+
+                    <p className="text-xl text-gray-400 leading-relaxed max-w-2xl">
+                        I engineer high-performance full-stack applications and intelligent AI ecosystems, transforming innovative concepts into robust, scalable, and data-driven solutions.
                     </p>
 
                     <div className="flex flex-wrap gap-4 pt-4">
