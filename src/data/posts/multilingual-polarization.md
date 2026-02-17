@@ -1,8 +1,8 @@
 ---
-title: "SemEval 2026: Multilingual Polarization Detection with Transformers"
+title: "SemEval 2026 Task 9: Multilingual Polarization Detection"
 date: "2024-06-15"
-description: "A comprehensive study using Transformer Baselines, LoRA, and LLM Prompting across 22 languages. We benchmarked approaches to solve the challenge of detecting ideological hostility in low-resource environments."
-tags: ["NLP", "SemEval", "LoRA", "LLMs"]
+description: "A comprehensive study using Transformer Baselines, LoRA, and LLM Prompting across 22 languages for SemEval Task 9 (Subtask 1)."
+tags: ["NLP", "SemEval Task 9", "LoRA", "LLMs"]
 ---
 
 ## 1. Executive Summary
@@ -88,5 +88,6 @@ The grid below represents the culmination of our combined efforts. It visualizes
 
 ## Resources
 
+*   [💻 **View Code Repository (GitHub)**](https://github.com/kushi-3/KKR_NLP)
 *   [📄 **Download Full Project Report (PDF)**](/multilingual.pdf)
 *   [📊 **Download Presentation Slides (PPT)**](/multilingual-presentation.pptx)
