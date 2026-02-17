@@ -19,7 +19,7 @@ export default function Hero() {
                         Available for Hire
                     </span>
 
-                    <h1 className="text-6xl sm:text-8xl font-bold tracking-tight text-white leading-none mb-2">
+                    <h1 className="text-5xl sm:text-7xl font-bold tracking-tight text-white leading-none mb-2">
                         Kamal Poshala
                     </h1>
 

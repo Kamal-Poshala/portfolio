@@ -23,13 +23,13 @@
 }
 
 :root {
-  --background: #030712;
-  /* gray-950 */
+  --background: #020617;
+  /* slate-950 (deeper) */
   --foreground: #f8fafc;
   /* slate-50 */
 
-  --primary: #3b82f6;
-  /* blue-500 */
+  --primary: #0ea5e9;
+  /* sky-500 (more vibrant/tech) */
   --primary-foreground: #ffffff;
 
   --secondary: #1e293b;
@@ -38,24 +38,28 @@
 
   --muted: #0f172a;
   /* slate-900 */
-  --muted-foreground: #cbd5e1;
-  /* slate-300 (was 400) */
+  --muted-foreground: #94a3b8;
+  /* slate-400 */
 
-  --card: #0f172ae6;
-  /* slate-900 with 90% opacity */
+  --card: rgba(15, 23, 42, 0.6);
+  /* Translucent slate-900 */
   --card-foreground: #f8fafc;
 
-  --border: #334155;
-  /* slate-700 (lighter border) */
+  --border: #1e293b;
+  /* slate-800 */
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
+  /* subtle grid pattern with a top spotlight */
   background-image:
-    radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    radial-gradient(circle at 50% -20%, rgba(14, 165, 233, 0.15), transparent 60%),
+    radial-gradient(circle at 100% 40%, rgba(99, 102, 241, 0.08), transparent 50%);
+  background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%;
   background-attachment: fixed;
 }
 
