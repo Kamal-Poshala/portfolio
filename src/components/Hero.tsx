@@ -20,9 +20,9 @@ export default function Hero() {
                     </span>
 
                     <h1 className="text-5xl sm:text-7xl font-bold tracking-tight text-white leading-[1.1]">
-                        Building Scalable <br />
+                        Engineering Intelligent <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-violet-500">
-                            Distributed Systems
+                            Full-Stack AI Solutions
                         </span>
                     </h1>
 
