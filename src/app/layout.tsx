@@ -53,10 +53,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#050510] text-[#E0E7FF]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#030308] text-[#E0E7FF]`}
       >
+        <div className="grid-overlay" />
         <Navbar />
-        <main className="w-full min-h-screen flex flex-col">
+        <main className="w-full min-h-screen flex flex-col pt-10">
           {children}
         </main>
         <Footer />
