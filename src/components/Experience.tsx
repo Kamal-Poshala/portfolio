@@ -11,7 +11,7 @@ export default function Experience() {
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.6, delay: index * 0.2 }}
                     key={index}
                     className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active"
@@ -51,7 +51,7 @@ export default function Experience() {
                             {exp.skills.map((skill) => (
                                 <span
                                     key={skill}
-                                    className="px-2 py-1 bg-[#050510] border border-purple-500/30 text-purple-200/80 text-[10px] uppercase font-mono tracking-widest rounded"
+                                    className="px-2 py-1 bg-[#050510] border border-purple-500/30 text-purple-200/80 text-[10px] uppercase font-mono tracking-widest rounded transition-all group-hover:border-cyan-500/50"
                                 >
                                     {skill}
                                 </span>

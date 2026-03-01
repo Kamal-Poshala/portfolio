@@ -1,0 +1,58 @@
+Kamal Poshala
++1 (405) 430-2216 |kamalposhala.cs@gmail.com |GitHub |LinkedIn |Portfolio
+TECHNICAL SKILLS
+Programming Languages: Java, JavaScript, Python, C
+Backend Engineering: Node.js, Express.js, RESTful APIs, Microservices Architecture, Middleware, JWT Authentication,
+Socket.IO
+Databases: MongoDB, MySQL, Indexing, Aggregation Pipelines, Query Optimization
+Systems: Data Structures, Algorithms, OOP, System Design, Concurrency, Distributed Systems, Event-Driven Architecture
+DevOps: Git, CI/CD Pipelines, Linux, Cron Scheduling
+Frontend: React.js, TypeScript, TailwindCSS
+EXPERIENCE
+Cotiviti India Jan 2024 – Jun 2024
+Software Engineer Intern — Node.js, MongoDB, Microservices
+•Delivered 12+ production-grade RESTful services processing 5K+ daily transactions in distributed backend systems,
+improving automation efficiency by 30%.
+•Designed microservice-based internal platforms adopted across 3 engineering teams, eliminating 40% of manual workflows.
+•Increased backend throughput by 35% via asynchronous request orchestration, optimized aggregation pipelines, and
+database indexing.
+•Led resolution of 20+ production incidents through root-cause analysis and structured debugging, improving system
+availability to 99.8%.
+•Collaborated with DevOps teams to streamline CI/CD pipelines and reduce deployment cycle time.
+Persistent Systems Aug 2023 – Oct 2023
+Software Engineer Intern — Java, Linux
+•Engineered performance-focused Java backend modules reducing execution time by 25% through memory optimization and
+algorithm refinement.
+•Implemented scalable algorithmic solutions using advanced data structures (HashMaps, Heaps, Graph traversal).
+•Improved multi-threaded stability by optimizing synchronization mechanisms and reducing CPU contention.
+PROJECTS
+SyncSpace — Real-Time Collaborative Workspace (GitHub) |(Live) 2025
+React, TypeScript, Node.js, Express, Socket.IO, MongoDB
+•Architected real-time collaborative platform supporting concurrent document editing, live chat, and presence tracking
+using WebSockets.
+•Designed room-based event-driven communication layer with modular socket handlers for workspace isolation.
+•Implemented JWT-secured REST and WebSocket authentication with role-based access control (RBAC).
+•Reduced database write load via debounced client updates and throttled persistence strategies.
+•Optimized scalability by maintaining persistent socket connections with intelligent room switching.
+•Deployed backend on Koyeb and frontend on Vercel with production-ready environment configuration.
+Internship Program Management System (IPMS) (GitHub) Mar 2025 – Apr 2025
+Node.js, MongoDB
+•Designed distributed approval workflow with role-based access control and secure JWT authentication.
+•Implemented 15+ RESTful endpoints handling 1,000+ transaction events with centralized logging and validation middle-
+ware.
+•Automated email reminder and escalation workflows using cron scheduling, reducing approval turnaround time by 40%.
+•Improved query performance by 38% through index creation and aggregation pipeline restructuring.
+•Structured backend services with modular separation of controllers, middleware, and utilities to enhance maintainability.
+CogniFetch — Search and Retrieval Engine (GitHub) Jan 2024 – May 2024
+Node.js, MongoDB, NLP
+•Developed TF-IDF based search engine indexing 10K+ academic documents with relevance scoring.
+•Built OCR and NLP ingestion pipeline transforming 2K+ PDFs into structured datasets.
+•Implemented cosine similarity ranking and optimized query execution for efficient retrieval.
+•Reduced query latency by 45% through indexing strategies and optimized aggregation queries.
+•Designed clean API layer enabling pagination, filtering, and scalable search expansion.
+EDUCATION
+University of Oklahoma Aug 2024 – May 2026
+Master of Science in Computer Science
+Coursework: Distributed Systems, Advanced Algorithms, Database Systems, Cloud Computing
+CVR College of Engineering Aug 2020 – May 2024
+Bachelor of Technology in Information Technology

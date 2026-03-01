@@ -7,32 +7,19 @@ import Image from "next/image";
 
 export default function Hero() {
     return (
-        <section className="relative min-h-[100vh] w-full flex items-center justify-end overflow-hidden pt-16 bg-[#030308]">
-            {/* Background Image Layer */}
-            <div className="absolute inset-0 z-0">
-                <Image
-                    src="/hero-bg-neon.png"
-                    alt="Anime Cyberpunk Environment"
-                    fill
-                    className="object-cover object-[25%_center] lg:object-[35%_center] opacity-100 scale-105"
-                    priority
-                />
+        <section className="relative min-h-[100vh] w-full flex items-center justify-center overflow-hidden pt-16 bg-transparent">
+            {/* Ambient Lighting Layer */}
+            <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent to-[#030308]" />
 
-                {/* Cinematic Gradients for text legibility on the right */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020205] via-[#030308]/40 to-transparent z-10" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#030308]/70 to-[#020205] z-10" />
-            </div>
-
-            {/* Content Layer */}
-            <div className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex justify-end">
-                {/* Holographic UI Panel effect */}
+            <div className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-8">
+                {/* Left Side: Content Text */}
                 <motion.div
-                    initial={{ opacity: 0, x: 50 }}
+                    initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-                    className="w-full md:w-[60%] lg:w-[45%] flex flex-col gap-6 relative mt-16 p-8 lg:p-10 rounded-[2rem] border border-fuchsia-500/30 bg-[#080314]/70 backdrop-blur-xl shadow-[0_0_60px_rgba(217,70,239,0.2)]"
+                    className="w-full lg:w-[55%] flex flex-col gap-6 relative mt-10 lg:mt-0 p-8 lg:p-10 rounded-[2rem] border border-fuchsia-500/30 bg-[#080314]/70 backdrop-blur-xl shadow-[0_0_60px_rgba(217,70,239,0.2)]"
                 >
-                    {/* Decorative Top Left Tech Element */}
+                    {/* Decorative Tech Elements */}
                     <div className="absolute -top-3 -left-3 border-t-2 border-l-2 border-cyan-400 w-8 h-8 opacity-80 shadow-[0_0_15px_rgba(6,182,212,0.6)]" />
                     <div className="absolute -bottom-3 -right-3 border-b-2 border-r-2 border-fuchsia-500 w-8 h-8 opacity-80 shadow-[0_0_15px_rgba(217,70,239,0.6)]" />
 
@@ -87,8 +74,46 @@ export default function Hero() {
                         </Link>
                     </div>
                 </motion.div>
-            </div>
 
+                {/* Right Side: Actual Photo with Neon Borders */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9, x: 50 }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+                    className="w-full lg:w-[45%] flex justify-center items-center relative"
+                >
+                    {/* Circular Glowing Pedestal effect */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-96 sm:h-96 bg-cyan-500/10 rounded-full blur-[80px] pointer-events-none" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 bg-fuchsia-500/15 rounded-full blur-[60px] pointer-events-none" />
+
+                    {/* Image Container with Neon Borders and Hover Glow */}
+                    <div className="relative w-64 h-80 sm:w-80 sm:h-[400px] md:w-[350px] md:h-[450px] lg:w-[400px] lg:h-[500px] z-10 group">
+
+                        {/* Neon Outline Border that glows heavily on hover */}
+                        <div className="absolute inset-[-4px] rounded-2xl border-[3px] border-cyan-500/50 group-hover:border-fuchsia-400 shadow-[0_0_15px_rgba(6,182,212,0.4)] group-hover:shadow-[0_0_50px_rgba(217,70,239,0.8),inset_0_0_30px_rgba(217,70,239,0.6)] transition-all duration-500 z-20 pointer-events-none" />
+
+                        {/* Corner Tech Accents */}
+                        <div className="absolute -top-3 -left-3 w-10 h-10 border-t-4 border-l-4 border-fuchsia-500 group-hover:border-cyan-400 group-hover:shadow-[0_0_20px_rgba(6,182,212,0.9)] transition-all duration-500 z-30" />
+                        <div className="absolute -bottom-3 -right-3 w-10 h-10 border-b-4 border-r-4 border-fuchsia-500 group-hover:border-cyan-400 group-hover:shadow-[0_0_20px_rgba(6,182,212,0.9)] transition-all duration-500 z-30" />
+                        <div className="absolute -top-3 -right-3 w-10 h-10 border-t-2 border-r-2 border-cyan-500/50 group-hover:border-fuchsia-400 transition-all duration-500 z-30" />
+                        <div className="absolute -bottom-3 -left-3 w-10 h-10 border-b-2 border-l-2 border-cyan-500/50 group-hover:border-fuchsia-400 transition-all duration-500 z-30" />
+
+                        {/* Actual Image */}
+                        <div className="relative w-full h-full rounded-2xl overflow-hidden bg-[#080314]/80 backdrop-blur-sm border border-cyan-500/20">
+                            <Image
+                                src="/profile1.png"
+                                alt="Kamal Poshala"
+                                fill
+                                className="object-cover object-top scale-100 group-hover:scale-105 transition-transform duration-700 ease-out saturate-50 group-hover:saturate-100"
+                                priority
+                            />
+                            {/* Inner gradient/scanline for blending */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#030308] via-[#030308]/20 to-transparent pointer-events-none" />
+                            <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.05)_1px,transparent_1px)] bg-[size:100%_4px] pointer-events-none mix-blend-overlay opacity-50 group-hover:opacity-10" />
+                        </div>
+                    </div>
+                </motion.div>
+            </div>
         </section>
     );
 }

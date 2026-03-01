@@ -10,7 +10,7 @@ export default function Home() {
     <div className="space-y-0">
       <Hero />
 
-      <Section id="skills" title="Technical Skills" className="bg-secondary/20">
+      <Section id="skills" title="Technical Skills">
         <Skills />
       </Section>
 
@@ -22,7 +22,7 @@ export default function Home() {
         <Projects />
       </Section>
 
-      <Section id="education" title="Education" className="bg-secondary/20">
+      <Section id="education" title="Education">
         <Education />
       </Section>
     </div>

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
+import FluidBackground from "@/components/FluidBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,8 +57,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#030308] text-[#E0E7FF] cursor-none [&_*]:cursor-none`}
       >
+        <FluidBackground />
         <CustomCursor />
-        <div className="grid-overlay" />
+        <div className="grid-overlay pointer-events-none" />
         <Navbar />
         <main className="w-full min-h-screen flex flex-col pt-10">
           {children}

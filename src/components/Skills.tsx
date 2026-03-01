@@ -19,7 +19,7 @@ const SkillCategory = ({ title, items, delay }: { title: string; items: string[]
     <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ delay, duration: 0.5, type: "spring" }}
         className="relative p-6 overflow-hidden rounded-2xl bg-[#080814]/80 border border-cyan-500/20 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.05)] hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] hover:border-purple-500/40 transition-all duration-500 group"
     >

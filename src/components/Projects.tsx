@@ -1,7 +1,7 @@
 "use client";
 
 import { projects } from "@/data/projects";
-import { Github, Code2, ExternalLink, Cpu } from "lucide-react";
+import { Github, ExternalLink, Cpu } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Projects() {
@@ -12,9 +12,9 @@ export default function Projects() {
                     key={index}
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.2 }}
                     transition={{ delay: index * 0.1, duration: 0.5 }}
-                    className="group relative flex flex-col bg-[#050510]/80 border border-purple-500/20 rounded-xl overflow-hidden backdrop-blur-md transition-all duration-300 hover:-translate-y-2 h-full z-10"
+                    className="group relative flex flex-col bg-[#050510]/80 border border-purple-500/20 rounded-xl overflow-hidden backdrop-blur-md transition-all duration-300 hover:-translate-y-2 h-full z-10 hover:shadow-[0_0_30px_rgba(217,70,239,0.3)]"
                 >
                     {/* Hover Glow Effect Layer */}
                     <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -33,7 +33,7 @@ export default function Projects() {
                                         href={project.repoLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="p-2 text-indigo-300/60 hover:text-cyan-400 hover:bg-cyan-500/10 rounded border border-transparent hover:border-cyan-500/30 transition-all"
+                                        className="p-2 text-fuchsia-300/60 hover:text-cyan-400 hover:bg-cyan-500/10 rounded border border-transparent hover:border-cyan-500/30 transition-all"
                                         title="System Code"
                                     >
                                         <Github className="w-5 h-5" />
@@ -44,7 +44,7 @@ export default function Projects() {
                                         href={project.demoLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="p-2 text-indigo-300/60 hover:text-purple-400 hover:bg-purple-500/10 rounded border border-transparent hover:border-purple-500/30 transition-all"
+                                        className="p-2 text-fuchsia-300/60 hover:text-purple-400 hover:bg-purple-500/10 rounded border border-transparent hover:border-purple-500/30 transition-all"
                                         title="Live Render"
                                     >
                                         <ExternalLink className="w-5 h-5" />
@@ -57,7 +57,7 @@ export default function Projects() {
                             {project.title}
                         </h3>
 
-                        <p className="text-xs font-mono tracking-widest text-purple-400 uppercase mb-4 opacity-80">
+                        <p className="text-xs font-mono tracking-widest text-fuchsia-400 uppercase mb-4 opacity-80">
                             {project.category}
                         </p>
 
@@ -69,7 +69,7 @@ export default function Projects() {
                             {project.tech.map((t) => (
                                 <span
                                     key={t}
-                                    className="px-2 py-1 text-[11px] uppercase tracking-wider font-mono text-cyan-200/80 border border-cyan-500/20 bg-cyan-950/20 rounded"
+                                    className="px-2 py-1 text-[11px] uppercase tracking-wider font-mono text-cyan-200/80 border border-cyan-500/20 bg-cyan-950/20 rounded shadow-[0_0_5px_rgba(6,182,212,0.2)]"
                                 >
                                     {t}
                                 </span>

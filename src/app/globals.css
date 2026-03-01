@@ -27,11 +27,11 @@
   --foreground: #e0e7ff;
 
   --primary: #06b6d4;
-  /* cyan-500 */
+  /* Cyan */
   --primary-foreground: #ffffff;
 
-  --secondary: #a855f7;
-  /* purple-500 */
+  --secondary: #d946ef;
+  /* Fuchsia */
   --secondary-foreground: #ffffff;
 
   --muted: #1e1e2f;
@@ -51,49 +51,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Atmospheric Glows */
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  width: 70vw;
-  height: 70vh;
-  border-radius: 50%;
-  pointer-events: none;
-  filter: blur(150px);
-  z-index: -3;
-  opacity: 0.15;
-  animation: floatOrb 25s infinite alternate ease-in-out;
-}
-
-body::before {
-  top: -20vh;
-  left: -10vw;
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.8) 0%, transparent 70%);
-}
-
-body::after {
-  bottom: -20vh;
-  right: -10vw;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.5) 0%, transparent 70%);
-  animation-delay: -12s;
-  animation-duration: 30s;
-}
-
-@keyframes floatOrb {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  50% {
-    transform: translate(5vw, 15vh) scale(1.1);
-  }
-
-  100% {
-    transform: translate(-5vw, 10vh) scale(0.9);
-  }
-}
-
 /* Tech Grid */
 .grid-overlay {
   position: fixed;
@@ -108,7 +65,7 @@ body::after {
     linear-gradient(90deg, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
   background-size: 50px 50px;
   mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
-  animation: bgScroll 10s linear infinite;
+  animation: bgScroll 15s linear infinite;
   transform-origin: top;
 }
 
@@ -152,13 +109,13 @@ body::after {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(168, 85, 247, 0.5);
+  background: rgba(217, 70, 239, 0.5);
 }
 
-/* Utility for glassmorphism */
+/* Glassmorphism utility */
 .glass-card {
   background: var(--card);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
   border: 1px solid var(--border);
-  box-shadow: 0 0 15px rgba(6, 182, 212, 0.05);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.1);
 }
