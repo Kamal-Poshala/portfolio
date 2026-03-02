@@ -3,6 +3,7 @@
 import { projects } from "@/data/projects";
 import { Github, ExternalLink, Cpu } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Projects() {
     return (
@@ -16,11 +17,24 @@ export default function Projects() {
                     transition={{ delay: index * 0.1, duration: 0.5 }}
                     className="group relative flex flex-col bg-[#050510]/80 border border-purple-500/20 rounded-xl overflow-hidden backdrop-blur-md transition-all duration-300 hover:-translate-y-2 h-full z-10 hover:shadow-[0_0_30px_rgba(217,70,239,0.3)]"
                 >
+                    {/* Background Image Layer */}
+                    {project.image && (
+                        <div className="absolute inset-0 z-0">
+                            <Image
+                                src={project.image}
+                                alt={project.title}
+                                fill
+                                className="object-cover opacity-20 group-hover:opacity-50 transition-all duration-500 blur-[2px] group-hover:blur-0 scale-100 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#050510] via-[#050510]/80 to-[#050510]/30" />
+                        </div>
+                    )}
+
                     {/* Hover Glow Effect Layer */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
 
                     {/* Top Edge Highlight */}
-                    <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
+                    <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 z-20" />
 
                     <div className="p-6 flex-1 flex flex-col relative z-20">
                         <div className="flex justify-between items-start mb-6">

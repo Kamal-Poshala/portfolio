@@ -5,12 +5,14 @@ import { skills } from "@/data/skills";
 import { Monitor, Database, TerminalSquare, Cloud, Cpu, Wrench } from "lucide-react";
 
 const getCategoryIcon = (title: string) => {
-    switch (title) {
-        case "Frontend Development": return <Monitor className="w-5 h-5 text-cyan-400" />;
-        case "Backend & Cloud": return <Cloud className="w-5 h-5 text-purple-400" />;
-        case "Language & Tools": return <TerminalSquare className="w-5 h-5 text-indigo-400" />;
-        case "Database & ORM": return <Database className="w-5 h-5 text-pink-400" />;
-        case "Programming Languages": return <Cpu className="w-5 h-5 text-blue-400" />;
+    switch (title.toLowerCase()) {
+        case "frontend": return <Monitor className="w-5 h-5 text-cyan-400" />;
+        case "backend": return <Cloud className="w-5 h-5 text-purple-400" />;
+        case "languages": return <TerminalSquare className="w-5 h-5 text-indigo-400" />;
+        case "databases": return <Database className="w-5 h-5 text-pink-400" />;
+        case "ai ml": return <Cpu className="w-5 h-5 text-blue-400" />;
+        case "systems": return <Wrench className="w-5 h-5 text-fuchsia-400" />;
+        case "devops": return <Cloud className="w-5 h-5 text-indigo-400" />;
         default: return <Wrench className="w-5 h-5 text-cyan-500" />;
     }
 }
@@ -37,13 +39,14 @@ const SkillCategory = ({ title, items, delay }: { title: string; items: string[]
 
         <div className="flex flex-wrap gap-3 relative z-10">
             {items.map((skill) => (
-                <span
+                <motion.span
                     key={skill}
-                    className="flex items-center gap-1.5 px-3 py-1.5 bg-black/40 border border-white/10 rounded font-mono text-sm text-indigo-200 hover:text-white hover:border-cyan-400 hover:bg-cyan-900/40 hover:shadow-[0_0_10px_rgba(6,182,212,0.4)] transition-all"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    className="flex items-center gap-1.5 px-3 py-1.5 bg-black/40 border border-white/10 rounded font-mono text-sm text-indigo-200 hover:text-white hover:border-cyan-400 hover:bg-gradient-to-r hover:from-cyan-900/40 hover:to-purple-900/40 hover:shadow-[0_0_15px_rgba(6,182,212,0.6)] transition-all cursor-crosshair"
                 >
                     <span className="text-cyan-500 opacity-70 text-xs">▰</span>
                     {skill}
-                </span>
+                </motion.span>
             ))}
         </div>
     </motion.div>

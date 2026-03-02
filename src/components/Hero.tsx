@@ -31,7 +31,7 @@ export default function Hero() {
                             className="inline-flex items-center gap-2 px-4 py-1.5 rounded bg-fuchsia-950/40 border border-fuchsia-500/40 text-fuchsia-300 text-xs font-mono tracking-widest uppercase shadow-[0_0_20px_rgba(217,70,239,0.3)] hover:shadow-[0_0_30px_rgba(217,70,239,0.5)] transition-shadow"
                         >
                             <Terminal className="w-3.5 h-3.5" />
-                            <span>System Matrix: Online</span>
+                            <span>Available for Opportunities</span>
                         </motion.div>
 
                         <h1 className="text-5xl sm:text-6xl font-black tracking-tight text-white leading-[1.1] drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]">
@@ -41,16 +41,16 @@ export default function Hero() {
 
                     <h2 className="text-2xl sm:text-3xl font-bold flex flex-col gap-2">
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-fuchsia-600 drop-shadow-[0_0_15px_rgba(217,70,239,0.4)]">
-                            Software Architect
+                            Software Engineer
                         </span>
                         <span className="text-base sm:text-lg text-cyan-400/90 font-mono tracking-wide uppercase flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-fuchsia-500 animate-pulse shadow-[0_0_15px_rgba(217,70,239,0.9)]" />
-                            Overdrive Active
+                            Open to Work
                         </span>
                     </h2>
 
                     <p className="text-lg text-purple-100/80 leading-relaxed font-light mt-2 border-l-2 border-fuchsia-500/50 pl-4 shadow-[-5px_0_15px_rgba(217,70,239,0.1)]">
-                        Engineering next-generation distributed networks and high-performance AI systems. Turning algorithmic theory into cybernetic reality.
+                        M.S. in Computer Science at the University of Oklahoma. Software Engineer specializing in scalable Node.js & Java backends, distributed microservices, and AI-driven platforms. Turning complex architectural patterns into resilient cybernetic systems.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 pt-6">
@@ -60,7 +60,7 @@ export default function Hero() {
                         >
                             <span className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 ease-in-out" />
                             <span className="relative z-10 flex items-center gap-2">
-                                Access Databank
+                                View Projects
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </span>
                         </Link>
@@ -70,7 +70,7 @@ export default function Hero() {
                             className="px-6 py-3.5 border border-cyan-500/50 text-cyan-200 font-bold rounded flex items-center justify-center gap-2 hover:bg-cyan-500/10 hover:border-cyan-400 transition-colors shadow-[0_0_20px_rgba(6,182,212,0.2)] hover:shadow-[0_0_30px_rgba(6,182,212,0.4)]"
                         >
                             <Fingerprint className="w-4 h-4 text-cyan-400 drop-shadow-[0_0_8px_rgba(6,182,212,0.8)]" />
-                            Initiate Contact
+                            Contact Me
                         </Link>
                     </div>
                 </motion.div>
