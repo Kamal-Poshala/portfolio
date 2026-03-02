@@ -16,28 +16,21 @@ export default function FluidBackground() {
                 TRIGGER: 'hover',
                 SIM_RESOLUTION: 128,
                 DYE_RESOLUTION: 512,
-                DENSITY_DISSIPATION: 2.5,
-                VELOCITY_DISSIPATION: 2.0,
+                DENSITY_DISSIPATION: 4.0, // High dissipation for less chaos
+                VELOCITY_DISSIPATION: 4.0, // Subdued fluid motion
                 PRESSURE: 0.1,
-                PRESSURE_ITERATIONS: 20,
-                CURL: 15,
-                SPLAT_RADIUS: 0.4,
-                SPLAT_FORCE: 6000,
-                SHADING: true,
-                COLORFUL: true,
-                COLOR_UPDATE_SPEED: 10,
+                PRESSURE_ITERATIONS: 10,
+                CURL: 0, // No chaotic curl
+                SPLAT_RADIUS: 0.1, // Small interaction area
+                SPLAT_FORCE: 2000,
+                SHADING: false, // Flat minimal shading
+                COLORFUL: false, // Monochrome
+                COLOR_UPDATE_SPEED: 0,
                 PAUSED: false,
-                BACK_COLOR: { r: 3, g: 3, b: 8 }, // match #030308
+                BACK_COLOR: { r: 15, g: 15, b: 20 }, // Charcoal Black #0f0f14
                 TRANSPARENT: false,
-                BLOOM: true,
-                BLOOM_ITERATIONS: 8,
-                BLOOM_RESOLUTION: 256,
-                BLOOM_INTENSITY: 0.8,
-                BLOOM_THRESHOLD: 0.6,
-                BLOOM_SOFT_KNEE: 0.7,
-                SUNRAYS: true,
-                SUNRAYS_RESOLUTION: 196,
-                SUNRAYS_WEIGHT: 1.0,
+                BLOOM: false, // Turn off bloom for enterprise clean look
+                SUNRAYS: false,
             });
         });
 

@@ -1,7 +1,7 @@
 import { getAllPostIds, getPostData } from "@/lib/posts";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { ArrowLeft, Calendar, User, Clock, ChevronRight } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, ChevronRight, Terminal } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -32,103 +32,109 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
     }
 
     return (
-        <article className="min-h-screen bg-[#020205] text-slate-300 selection:bg-blue-500/30">
-            {/* Subtle, Professional Ambient Background */}
-            <div className="fixed inset-0 pointer-events-none">
-                <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-indigo-900/10 rounded-full blur-[100px]" />
-                <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-slate-800/20 rounded-full blur-[100px]" />
-                <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.03]" />
+        <article className="min-h-screen bg-[#0f0f14] text-[#d1d5db] selection:bg-[#3b82f6]/30 px-4 sm:px-6 lg:px-8 pb-20">
+            {/* Ambient Background Structure */}
+            <div className="fixed inset-0 pointer-events-none z-0">
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
+                <div className="absolute left-0 top-0 w-[1px] h-full bg-[#1e3a8a]/20 ml-[5%]" />
+                <div className="absolute right-0 top-0 w-[1px] h-full bg-[#1e3a8a]/20 mr-[5%]" />
             </div>
 
-            <div className="relative pt-32 pb-24 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto">
+            <div className="relative z-10 pt-24 pb-12 max-w-4xl mx-auto">
                 {/* Navigation Breadcrumb */}
-                <nav className="flex items-center gap-2 text-sm text-slate-500 mb-12 font-medium">
-                    <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>
-                    <ChevronRight className="w-4 h-4" />
-                    <Link href="/blog" className="hover:text-blue-400 transition-colors">Insights</Link>
-                    <ChevronRight className="w-4 h-4" />
-                    <span className="text-slate-300 truncate max-w-[200px]">SemEval Task 9</span>
+                <nav className="flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-[#9ca3af] mb-12">
+                    <Link href="/" className="hover:text-white transition-colors">Home</Link>
+                    <ChevronRight className="w-3 h-3 text-[#1e3a8a]" />
+                    <Link href="/blog" className="hover:text-white transition-colors">Insights</Link>
+                    <ChevronRight className="w-3 h-3 text-[#1e3a8a]" />
+                    <span className="text-[#3b82f6] truncate max-w-[200px]">SemEval Task 9</span>
                 </nav>
 
-                <header className="mb-16 border-b border-white/5 pb-16">
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-slate-400 mb-8 font-mono tracking-wide">
-                        <span className="flex items-center gap-2 px-3 py-1 bg-blue-500/10 text-blue-300 rounded-full border border-blue-500/20">
+                <header className="mb-12 border-b border-[#1e3a8a]/30 pb-10 relative">
+                    {/* Log Marker */}
+                    <div className="absolute left-[-24px] top-2 w-1.5 h-1.5 bg-[#3b82f6] shadow-[0_0_8px_rgba(59,130,246,0.8)]" />
+
+                    <div className="flex flex-wrap items-center gap-4 text-xs font-mono uppercase tracking-widest text-[#9ca3af] mb-6">
+                        <span className="flex items-center gap-2 px-2 py-1 bg-[#1e2029] text-[#3b82f6] border border-[#1e3a8a]">
                             Task 9
                         </span>
                         <span className="flex items-center gap-2">
-                            <Calendar className="w-4 h-4" />
+                            <Calendar className="w-3 h-3" />
                             {postData.date}
                         </span>
                         <span className="flex items-center gap-2">
-                            <Clock className="w-4 h-4" />
+                            <Clock className="w-3 h-3" />
                             10 min read
                         </span>
                     </div>
 
-                    <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-[1.15] tracking-tight">
+                    <h1 className="text-3xl md:text-5xl font-light text-white mb-6 leading-tight tracking-wide">
                         {postData.title}
                     </h1>
 
-                    <p className="text-xl text-slate-400 leading-relaxed font-light">
+                    <p className="text-base md:text-xl text-[#9ca3af] leading-relaxed font-light border-l-2 border-[#1e3a8a] pl-4">
                         {postData.description}
                     </p>
 
-                    <div className="flex items-center gap-4 mt-8 pt-8 border-t border-white/5">
-                        <div className="flex -space-x-2">
-                            <div className="w-8 h-8 rounded-full bg-slate-700 border-2 border-[#020205] flex items-center justify-center text-xs font-bold text-white">RM</div>
-                            <div className="w-8 h-8 rounded-full bg-slate-700 border-2 border-[#020205] flex items-center justify-center text-xs font-bold text-white">KK</div>
-                            <div className="w-8 h-8 rounded-full bg-blue-600 border-2 border-[#020205] flex items-center justify-center text-xs font-bold text-white z-10">KP</div>
+                    <div className="flex items-center gap-4 mt-8 pt-6 border-t border-[#1e3a8a]/20">
+                        <div className="flex -space-x-1">
+                            <div className="w-6 h-6 border border-[#1e3a8a] bg-[#1e2029] flex items-center justify-center text-[8px] font-mono text-[#9ca3af]">RM</div>
+                            <div className="w-6 h-6 border border-[#1e3a8a] bg-[#1e2029] flex items-center justify-center text-[8px] font-mono text-[#9ca3af]">KK</div>
+                            <div className="w-6 h-6 border border-[#3b82f6] bg-[#0a0a0f] flex items-center justify-center text-[8px] font-mono text-[#3b82f6] z-10">KP</div>
                         </div>
-                        <span className="text-sm text-slate-400">
-                            Research by <span className="text-white font-medium">Kamal Poshala</span>, Rohan Mukka, & Kushi Reddy
+                        <span className="text-xs font-mono text-[#9ca3af] uppercase tracking-wide">
+                            Authors: <span className="text-white">Kamal Poshala</span>, Rohan Mukka, Kushi Reddy
                         </span>
                     </div>
                 </header>
 
-                <div className="prose prose-lg md:prose-xl prose-invert max-w-none pb-20">
+                <div className="prose prose-invert prose-p:font-light prose-p:text-[#d1d5db] max-w-none">
                     <ReactMarkdown
                         remarkPlugins={[remarkGfm]}
                         components={{
                             h2: ({ node, ...props }) => (
-                                <h2 className="text-3xl font-bold text-white mt-20 mb-8 pb-4 border-b border-white/10 tracking-tight" {...props} />
+                                <h2 className="text-2xl font-light text-white mt-16 mb-6 pb-2 border-b border-[#1e3a8a]/30 uppercase tracking-widest flex items-center gap-3" {...props}>
+                                    <Terminal className="w-5 h-5 text-[#3b82f6] inline" />
+                                    {props.children}
+                                </h2>
                             ),
                             h3: ({ node, ...props }) => (
-                                <h3 className="text-xl font-semibold text-blue-300 mt-12 mb-4 uppercase tracking-wider" {...props} />
+                                <h3 className="text-lg font-medium text-[#3b82f6] mt-10 mb-4 uppercase tracking-wider" {...props} />
                             ),
                             p: ({ node, ...props }) => (
-                                <p className="text-slate-300 leading-8 mb-6 font-light" {...props} />
+                                <p className="leading-relaxed mb-6" {...props} />
                             ),
                             a: ({ node, ...props }) => (
-                                <a className="text-blue-400 hover:text-blue-300 underline decoration-blue-500/30 hover:decoration-blue-500 transition-all font-medium" {...props} />
+                                <a className="text-[#3b82f6] hover:text-[#e0e7ff] underline decoration-[#1e3a8a] hover:decoration-[#3b82f6] transition-colors" {...props} />
                             ),
                             table: ({ node, ...props }) => (
-                                <div className="my-10 overflow-x-auto rounded-lg border border-white/10 bg-[#0A0A0F] shadow-xl">
-                                    <table className="w-full text-left border-collapse" {...props} />
+                                <div className="my-8 overflow-x-auto border border-[#1e3a8a]/40 bg-[#0a0a0f]">
+                                    <table className="w-full text-left border-collapse text-sm font-mono" {...props} />
                                 </div>
                             ),
                             thead: ({ node, ...props }) => (
-                                <thead className="bg-white/5 text-white border-b border-white/10" {...props} />
+                                <thead className="bg-[#1e2029] text-[#9ca3af] border-b border-[#1e3a8a]/40" {...props} />
                             ),
                             th: ({ node, ...props }) => (
-                                <th className="p-4 font-semibold text-sm tracking-wider uppercase text-slate-200 whitespace-nowrap" {...props} />
+                                <th className="p-4 font-normal tracking-widest uppercase" {...props} />
                             ),
                             tr: ({ node, ...props }) => (
-                                <tr className="border-b border-white/5 last:border-0 hover:bg-white/5 transition-colors" {...props} />
+                                <tr className="border-b border-[#1e3a8a]/20 last:border-0 hover:bg-[#1e3a8a]/10 transition-colors" {...props} />
                             ),
                             td: ({ node, ...props }) => (
-                                <td className="p-4 text-slate-400 text-base border-r border-white/5 last:border-0" {...props} />
+                                <td className="p-4 text-[#d1d5db] border-r border-[#1e3a8a]/20 last:border-r-0" {...props} />
                             ),
                             blockquote: ({ node, ...props }) => (
-                                <blockquote className="my-10 border-l-4 border-blue-500 pl-6 italic text-xl text-slate-200 bg-white/5 py-4 pr-4 rounded-r-lg" {...props} />
+                                <blockquote className="my-8 border-l-2 border-[#3b82f6] pl-6 text-[#9ca3af] bg-[#0a0a0f] py-4 pr-4 text-sm font-mono" {...props} />
                             ),
                             ul: ({ node, ...props }) => (
-                                <ul className="my-6 space-y-2 list-disc list-outside ml-6 text-slate-300" {...props} />
+                                <ul className="my-6 space-y-2 list-none ml-2 text-[#d1d5db]" {...props} />
                             ),
                             li: ({ node, ...props }) => (
-                                <li className="leading-7 pl-2" {...props} />
+                                <li className="leading-relaxed flex before:content-['>'] before:mr-3 before:text-[#3b82f6] before:font-mono" {...props} />
                             ),
                             code: ({ node, ...props }) => (
-                                <code className="bg-white/10 text-blue-200 px-1.5 py-0.5 rounded text-sm font-mono" {...props} />
+                                <code className="bg-[#1e2029] border border-[#1e3a8a]/40 text-[#w0e7ff] px-1.5 py-0.5 text-xs font-mono" {...props} />
                             ),
                         }}
                     >
@@ -136,13 +142,13 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
                     </ReactMarkdown>
                 </div>
 
-                <div className="mt-20 pt-10 border-t border-white/10 flex justify-between items-center">
+                <div className="mt-16 pt-8 border-t border-[#1e3a8a]/30 flex justify-between items-center">
                     <Link
                         href="/blog"
-                        className="inline-flex items-center text-slate-400 hover:text-white transition-colors group"
+                        className="inline-flex items-center text-xs font-mono uppercase tracking-widest text-[#9ca3af] hover:text-white transition-colors group"
                     >
-                        <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
-                        More Research
+                        <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform text-[#3b82f6]" />
+                        Return to Index
                     </Link>
                 </div>
             </div>

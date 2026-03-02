@@ -2,66 +2,82 @@
 
 import { motion } from "framer-motion";
 import { skills } from "@/data/skills";
-import { Monitor, Database, TerminalSquare, Cloud, Cpu, Wrench } from "lucide-react";
-
-const getCategoryIcon = (title: string) => {
-    switch (title.toLowerCase()) {
-        case "frontend": return <Monitor className="w-5 h-5 text-cyan-400" />;
-        case "backend": return <Cloud className="w-5 h-5 text-purple-400" />;
-        case "languages": return <TerminalSquare className="w-5 h-5 text-indigo-400" />;
-        case "databases": return <Database className="w-5 h-5 text-pink-400" />;
-        case "ai ml": return <Cpu className="w-5 h-5 text-blue-400" />;
-        case "systems": return <Wrench className="w-5 h-5 text-fuchsia-400" />;
-        case "devops": return <Cloud className="w-5 h-5 text-indigo-400" />;
-        default: return <Wrench className="w-5 h-5 text-cyan-500" />;
-    }
-}
-
-const SkillCategory = ({ title, items, delay }: { title: string; items: string[]; delay: number }) => (
-    <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ delay, duration: 0.5, type: "spring" }}
-        className="relative p-6 overflow-hidden rounded-2xl bg-[#080814]/80 border border-cyan-500/20 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.05)] hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] hover:border-purple-500/40 transition-all duration-500 group"
-    >
-        {/* Holographic scanning line */}
-        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-scanline" />
-
-        {/* Animated Bracket Decoration */}
-        <div className="absolute top-2 left-2 w-4 h-4 border-t border-l border-cyan-500/50 rounded-tl transition-all duration-300 group-hover:border-cyan-400 group-hover:w-6 group-hover:h-6" />
-        <div className="absolute bottom-2 right-2 w-4 h-4 border-b border-r border-purple-500/50 rounded-br transition-all duration-300 group-hover:border-purple-400 group-hover:w-6 group-hover:h-6" />
-
-        <div className="flex items-center gap-3 mb-6 relative z-10 border-b border-white/5 pb-3">
-            {getCategoryIcon(title)}
-            <h3 className="text-xl font-bold text-white tracking-wide uppercase font-mono">{title}</h3>
-        </div>
-
-        <div className="flex flex-wrap gap-3 relative z-10">
-            {items.map((skill) => (
-                <motion.span
-                    key={skill}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    className="flex items-center gap-1.5 px-3 py-1.5 bg-black/40 border border-white/10 rounded font-mono text-sm text-indigo-200 hover:text-white hover:border-cyan-400 hover:bg-gradient-to-r hover:from-cyan-900/40 hover:to-purple-900/40 hover:shadow-[0_0_15px_rgba(6,182,212,0.6)] transition-all cursor-crosshair"
-                >
-                    <span className="text-cyan-500 opacity-70 text-xs">▰</span>
-                    {skill}
-                </motion.span>
-            ))}
-        </div>
-    </motion.div>
-);
+import { Terminal, Database, Cpu, HardDrive } from "lucide-react";
 
 export default function Skills() {
+    const layers = [
+        {
+            id: "layer-4",
+            title: "Layer 4: Systems & DevOps",
+            icon: <HardDrive className="w-5 h-5 text-[#3b82f6]" />,
+            items: [...skills.systems, ...skills.devops],
+            width: "w-full",
+            delay: 0.1
+        },
+        {
+            id: "layer-3",
+            title: "Layer 3: AI & Machine Learning",
+            icon: <Cpu className="w-5 h-5 text-[#3b82f6]" />,
+            items: skills.ai_ml,
+            width: "w-[95%] mx-auto",
+            delay: 0.2
+        },
+        {
+            id: "layer-2",
+            title: "Layer 2: Backend Engineering & Databases",
+            icon: <Database className="w-5 h-5 text-[#3b82f6]" />,
+            items: [...skills.backend, ...skills.databases],
+            width: "w-[90%] mx-auto",
+            delay: 0.3
+        },
+        {
+            id: "layer-1",
+            title: "Layer 1: Programming & Frontend",
+            icon: <Terminal className="w-5 h-5 text-[#3b82f6]" />,
+            items: [...skills.languages, ...skills.frontend],
+            width: "w-[85%] mx-auto",
+            delay: 0.4
+        },
+    ];
+
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-10">
-            {Object.entries(skills).map(([category, items], index) => (
-                <SkillCategory
-                    key={category}
-                    title={category.replace(/_/g, " ")}
-                    items={items}
-                    delay={index * 0.15}
-                />
+        <div className="flex flex-col gap-4 pb-10 max-w-5xl mx-auto">
+            {layers.map((layer) => (
+                <motion.div
+                    key={layer.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ delay: layer.delay, duration: 0.6, ease: "easeOut" }}
+                    className={`relative p-6 overflow-hidden bg-[#0f0f14]/80 border border-[#1e3a8a]/30 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-500 group ${layer.width}`}
+                >
+                    {/* Architectural Structure Lines */}
+                    <div className="absolute top-0 left-0 w-[2px] h-full bg-[#1e3a8a]/50 group-hover:bg-[#3b82f6] transition-colors duration-500" />
+                    <div className="absolute top-0 right-0 w-[2px] h-full bg-[#1e3a8a]/50 group-hover:bg-[#3b82f6] transition-colors duration-500" />
+                    <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-[#1e3a8a]/50 via-[#3b82f6]/20 to-[#1e3a8a]/50 group-hover:via-[#3b82f6]/50 transition-colors" />
+
+                    <div className="flex flex-col md:flex-row md:items-center gap-6 relative z-10">
+                        {/* Layer Title */}
+                        <div className="flex items-center gap-3 md:w-1/3 border-b md:border-b-0 md:border-r border-[#1e3a8a]/30 pb-4 md:pb-0 md:pr-4">
+                            {layer.icon}
+                            <h3 className="text-[#e0e7ff] tracking-widest uppercase font-mono text-sm font-medium">
+                                {layer.title}
+                            </h3>
+                        </div>
+
+                        {/* Layer Items */}
+                        <div className="flex flex-wrap gap-2 md:w-2/3">
+                            {layer.items.map((skill) => (
+                                <span
+                                    key={skill}
+                                    className="px-3 py-1 bg-[#1e2029] border border-[#1e3a8a]/40 text-[#d1d5db] font-mono text-xs hover:text-white hover:border-[#3b82f6] transition-colors duration-300"
+                                >
+                                    {skill}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </motion.div>
             ))}
         </div>
     );

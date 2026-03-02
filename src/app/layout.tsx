@@ -55,7 +55,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#030308] text-[#E0E7FF] cursor-none [&_*]:cursor-none`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0f0f14] text-[#E0E7FF] cursor-none [&_*]:cursor-none`}
       >
         <FluidBackground />
         <CustomCursor />

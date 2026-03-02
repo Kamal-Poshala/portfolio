@@ -43,7 +43,7 @@ export default function CustomCursor() {
     return (
         <>
             <motion.div
-                className="fixed top-0 left-0 w-10 h-10 rounded-full border border-cyan-400 pointer-events-none z-[9999] mix-blend-screen shadow-[0_0_15px_rgba(6,182,212,0.8)] flex justify-center items-center"
+                className="fixed top-0 left-0 w-8 h-8 pointer-events-none z-[9999] mix-blend-screen flex justify-center items-center backdrop-invert-[.02]"
                 style={{
                     x: cursorX,
                     y: cursorY,
@@ -51,17 +51,15 @@ export default function CustomCursor() {
                     translateY: "-50%",
                 }}
                 animate={{
-                    scale: isPointer ? 1.8 : 1,
-                    borderColor: isPointer ? "rgba(168,85,247,0.8)" : "rgba(6,182,212,0.8)",
-                    rotate: isPointer ? 45 : 0,
-                    borderRadius: isPointer ? "0%" : "50%",
+                    scale: isPointer ? 1.5 : 1,
                 }}
                 transition={{ type: "tween", ease: "backOut", duration: 0.15 }}
             >
+                {/* Minimal crosshair style dot */}
                 <motion.div
-                    className="w-1.5 h-1.5 bg-fuchsia-500 shadow-[0_0_10px_rgba(217,70,239,0.8)]"
+                    className="w-1.5 h-1.5 bg-[#3b82f6] shadow-[0_0_8px_rgba(59,130,246,0.8)]"
                     animate={{
-                        scale: isPointer ? 0.5 : 1,
+                        scale: isPointer ? 0.3 : 1,
                         borderRadius: isPointer ? "0%" : "50%",
                     }}
                     transition={{ duration: 0.2 }}
