@@ -4,7 +4,6 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
-import FluidBackground from "@/components/FluidBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,12 +16,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kamal Poshala | Full-Stack Software Developer",
+  title: "Kamal Poshala | Full-Stack Software Engineer",
   description:
-    "Full-Stack Software Developer specializing in scalable web applications, backend systems, and applied machine learning.",
+    "Full-Stack Software Engineer specializing in scalable web applications, backend systems, and applied machine learning.",
   metadataBase: new URL("https://kamal-portfolio.vercel.app"),
   openGraph: {
-    title: "Kamal Poshala | Full-Stack Software Developer",
+    title: "Kamal Poshala | Full-Stack Software Engineer",
     description:
       "Portfolio showcasing full-stack projects, backend systems, distributed workflows, and applied machine learning.",
     url: "https://kamal-portfolio.vercel.app",
@@ -57,9 +56,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0f0f14] text-[#E0E7FF] cursor-none [&_*]:cursor-none`}
       >
-        <FluidBackground />
         <CustomCursor />
-        <div className="grid-overlay pointer-events-none" />
+        <div className="grid-overlay pointer-events-none z-[-1]" />
         <Navbar />
         <main className="w-full min-h-screen flex flex-col pt-10">
           {children}
