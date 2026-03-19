@@ -7,13 +7,16 @@ export default function CustomCursor() {
     const [position, setPosition] = useState({ x: -100, y: -100 });
     const [isPointer, setIsPointer] = useState(false);
 
-    // Smooth fluid spring physics
-    const springConfig = { damping: 25, stiffness: 400, mass: 0.2 };
+    // Smooth physics configuration
+    const springConfig = { damping: 20, stiffness: 300, mass: 0.5 };
     const cursorX = useSpring(position.x, springConfig);
     const cursorY = useSpring(position.y, springConfig);
 
     useEffect(() => {
-        document.body.style.cursor = "none";
+        // Enforce dark mode auto body cursor handling
+        if (window.matchMedia("(pointer: fine)").matches) {
+            document.body.style.cursor = "none";
+        }
 
         const updatePosition = (e: MouseEvent) => {
             setPosition({ x: e.clientX, y: e.clientY });
@@ -42,8 +45,21 @@ export default function CustomCursor() {
 
     return (
         <>
+            {/* Precise standard dot tracking instantly */}
             <motion.div
-                className="fixed top-0 left-0 w-8 h-8 pointer-events-none z-[9999] mix-blend-screen flex justify-center items-center backdrop-invert-[.02]"
+                className="fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none z-[9999] bg-[#0ea5e9]"
+                animate={{
+                    x: position.x - 4,
+                    y: position.y - 4,
+                    scale: isPointer ? 1.5 : 1,
+                    opacity: position.x === -100 ? 0 : 1
+                }}
+                transition={{ type: "tween", duration: 0 }}
+            />
+
+            {/* Glowing, smooth trailing aura ring */}
+            <motion.div
+                className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#0ea5e9]/50 shadow-[0_0_15px_rgba(14,165,233,0.3)] pointer-events-none z-[9998]"
                 style={{
                     x: cursorX,
                     y: cursorY,
@@ -51,20 +67,13 @@ export default function CustomCursor() {
                     translateY: "-50%",
                 }}
                 animate={{
-                    scale: isPointer ? 1.5 : 1,
+                    scale: isPointer ? 2 : 1,
+                    backgroundColor: isPointer ? "rgba(14, 165, 233, 0.2)" : "transparent",
+                    borderColor: isPointer ? "rgba(14, 165, 233, 0.8)" : "rgba(14, 165, 233, 0.4)",
+                    opacity: position.x === -100 ? 0 : 1
                 }}
-                transition={{ type: "tween", ease: "backOut", duration: 0.15 }}
-            >
-                {/* Minimal crosshair style dot */}
-                <motion.div
-                    className="w-1.5 h-1.5 bg-[#3b82f6] shadow-[0_0_8px_rgba(59,130,246,0.8)]"
-                    animate={{
-                        scale: isPointer ? 0.3 : 1,
-                        borderRadius: isPointer ? "0%" : "50%",
-                    }}
-                    transition={{ duration: 0.2 }}
-                />
-            </motion.div>
+                transition={{ duration: 0.2 }}
+            />
         </>
     );
 }

@@ -27,7 +27,6 @@ function Satellite({ radius, speed, color, startAngle }: { radius: number; speed
 }
 
 function ConnectionPaths({ radius }: { radius: number }) {
-    // Static glowing rings representing data paths
     return (
         <group rotation={[Math.PI / 2, 0, 0]}>
             <Line
@@ -39,10 +38,10 @@ function ConnectionPaths({ radius }: { radius: number }) {
                     }
                     return pts;
                 })()}
-                color="#1e3a8a"
+                color="#e0f2fe"
                 lineWidth={1}
                 transparent
-                opacity={0.3}
+                opacity={0.6}
             />
         </group>
     );
@@ -67,22 +66,22 @@ export default function SystemCore() {
             {/* Central Core Element */}
             <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
                 <Sphere ref={coreRef} args={[1.2, 32, 32]}>
-                    <meshStandardMaterial color="#0f0f14" wireframe transparent opacity={0.15} />
+                    <meshStandardMaterial color="#baeffd" wireframe transparent opacity={0.3} />
                 </Sphere>
                 <Sphere args={[0.8, 32, 32]}>
-                    <meshStandardMaterial color="#0a0a0f" />
+                    <meshStandardMaterial color="#ffffff" />
                 </Sphere>
                 {/* Core Glow */}
-                <pointLight color="#3b82f6" intensity={2} distance={5} decay={2} />
+                <pointLight color="#0ea5e9" intensity={2} distance={5} decay={2} />
                 <Sphere args={[0.82, 32, 32]}>
-                    <meshBasicMaterial color="#3b82f6" transparent opacity={0.1} blending={THREE.AdditiveBlending} />
+                    <meshBasicMaterial color="#0ea5e9" transparent opacity={0.2} blending={THREE.AdditiveBlending} />
                 </Sphere>
             </Float>
 
             {/* Orbiting Service Nodes (Satellites) */}
-            <Satellite radius={2.5} speed={0.4} color="#3b82f6" startAngle={0} />
-            <Satellite radius={3.5} speed={0.25} color="#1e3a8a" startAngle={2} />
-            <Satellite radius={4.5} speed={0.15} color="#ffffff" startAngle={4} />
+            <Satellite radius={2.5} speed={0.4} color="#0ea5e9" startAngle={0} />
+            <Satellite radius={3.5} speed={0.25} color="#38bdf8" startAngle={2} />
+            <Satellite radius={4.5} speed={0.15} color="#7dd3fc" startAngle={4} />
 
             {/* Orbital Data Paths */}
             <ConnectionPaths radius={2.5} />

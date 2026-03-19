@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,8 +55,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0f0f14] text-[#E0E7FF] cursor-none [&_*]:cursor-none`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white/50 text-slate-900 cursor-none [&_*]:cursor-none`}
       >
+        <AnimatedBackground />
         <CustomCursor />
         <div className="grid-overlay pointer-events-none z-[-1]" />
         <Navbar />
