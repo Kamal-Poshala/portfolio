@@ -1,17 +1,15 @@
 export const experiences = [
   {
-    title: "Software Engineer Intern",
-    company: "Cotiviti India",
-    location: "Hyderabad, India",
-    period: "Jan 2024– Jun 2024",
+    title: "Research Assistant",
+    company: "University of Oklahoma",
+    location: "Norman, Oklahoma",
+    period: "Jun 2026 – Present",
     description: [
-      "Delivered 12+ production-grade RESTful services processing 5K+ daily transactions in distributed backend architecture, increasing automation efficiency by 30%.",
-      "Eliminated 40% of manual operational workflows by designing microservice-based internal platforms adopted across 3 engineering teams.",
-      "Increased backend throughput by 35% via asynchronous processing models, database indexing strategies, and aggregation query tuning.",
-      "Resolved 20+ high-priority production incidents through systematic debugging and root cause analysis, improving service availability to 99.8%.",
-      "Partnered with DevOps teams to streamline CI/CD deployment workflows, reducing release cycle time and improving delivery reliability.",
+      "Developing the SRL Academic Ancestry Platform to organize and visualize advisor-student lineage data across multiple generations of researchers.",
+      "Designing data collection and validation workflows, consolidating researcher information into a structured and searchable dataset.",
+      "Collaborating with faculty and researchers to maintain accurate records and improve accessibility of academic genealogy information.",
     ],
-    skills: ["Node.js", "MongoDB", "Microservices", "CI/CD"],
+    skills: ["Python", "Data Analysis", "Research Systems"],
   },
   {
     title: "Software Engineer Intern",
