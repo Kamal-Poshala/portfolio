@@ -1,19 +1,62 @@
-export const skills = {
-    languages: ["Java", "JavaScript", "Python", "C", "TypeScript", "SQL", "Solidity", "HTML/CSS"],
-    backend: [
-        "Node.js",
-        "Express.js",
-        "FastAPI",
-        "REST APIs",
-        "GraphQL",
-        "Microservices",
-        "Socket.IO",
-        "JWT / OAuth",
-        "Middleware",
-    ],
-    databases: ["MongoDB", "PostgreSQL", "MySQL", "Redis", "Firebase", "Vector Databases"],
-    ai_ml: ["PyTorch", "TensorFlow", "Scikit-learn", "Pandas", "NLP", "Hugging Face", "LLMs"],
-    systems: ["Distributed Systems", "System Design", "Docker", "Kubernetes", "AWS", "Nginx"],
-    devops: ["Git", "GitHub Actions", "CI/CD", "Linux", "Vercel", "Netlify"],
-    frontend: ["React.js", "Next.js", "Redux", "Tailwind CSS", "Framer Motion", "Material UI"],
+export type SkillGroup = {
+  label: string;
+  items: string[];
 };
+
+export const skillGroups: SkillGroup[] = [
+  {
+    label: "Languages",
+    items: ["Python", "Java", "JavaScript", "TypeScript", "SQL", "C"],
+  },
+  {
+    label: "Backend & Systems",
+    items: [
+      "Node.js",
+      "Express.js",
+      "FastAPI",
+      "REST APIs",
+      "Microservices",
+      "Socket.IO",
+      "Celery",
+      "Redis",
+      "Distributed Systems",
+      "Docker",
+      "CI/CD",
+      "Linux",
+      "Git",
+    ],
+  },
+  {
+    label: "Frontend",
+    items: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    label: "Databases & Data Engineering",
+    items: [
+      "MongoDB",
+      "MySQL",
+      "Query Optimization",
+      "Indexing",
+      "Aggregation Pipelines",
+      "Data Pipeline Design",
+    ],
+  },
+  {
+    label: "Machine Learning & AI",
+    items: [
+      "PyTorch",
+      "TensorFlow",
+      "Scikit-learn",
+      "Hugging Face Transformers",
+      "LoRA / PEFT",
+      "Fine-Tuning",
+      "mBERT",
+      "mT5",
+      "Multilingual NLP",
+    ],
+  },
+  {
+    label: "Speech & Vision AI",
+    items: ["Whisper (ASR)", "Wav2Lip", "GANs", "Edge-TTS", "FFmpeg"],
+  },
+];

@@ -1,50 +1,97 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
+
+const navItems = [
+  { name: "About", href: "/#about" },
+  { name: "Experience", href: "/#experience" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Skills", href: "/#skills" },
+  { name: "Contact", href: "/#contact" },
+];
 
 export default function Navbar() {
-  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const navItems = [
-    { name: "About", href: "/#about" },
-    { name: "Modules", href: "/#projects" },
-    { name: "Metrics", href: "/#experience" },
-    { name: "Research", href: "/#research" },
-    { name: "Blueprints", href: "/#skills" },
-  ];
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 inset-x-0 z-50 bg-white/50/80 backdrop-blur-md border-b border-[#0ea5e9]/20 shadow-[0_4px_30px_rgba(14,165,233,0.05)]">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 h-16 flex justify-between items-center relative">
-        <Link href="/" className="font-mono text-xl tracking-tighter flex items-center gap-2 group text-[#0ea5e9]">
-          <span className="opacity-50 group-hover:opacity-100 transition-opacity">{"//"}</span>
-          <span className="text-slate-900 font-medium tracking-wide group-hover:text-[#0ea5e9] transition-colors">K. POSHALA</span>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors ${
+        scrolled
+          ? "border-[var(--hairline)] bg-[color-mix(in_srgb,var(--paper)_88%,transparent)] backdrop-blur-md"
+          : "border-transparent"
+      }`}
+    >
+      <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6 lg:px-8">
+        <Link href="/" className="text-sm font-semibold tracking-tight text-[var(--ink)]">
+          Kamal Poshala
         </Link>
 
-        {/* Minimal System Line */}
-        <div className="hidden lg:block absolute bottom-0 left-[20%] right-[20%] h-[1px] bg-gradient-to-r from-transparent via-[#0ea5e9]/50 to-transparent" />
-
-        <div className="hidden sm:flex space-x-8 text-[11px] font-mono uppercase tracking-widest text-slate-500">
+        <div className="hidden items-center gap-7 sm:flex">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="hover:text-slate-900 transition-colors relative group py-2 flex items-center gap-2"
+              className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--ink)]"
             >
-              <span className="text-[#0ea5e9] opacity-0 group-hover:opacity-100 transition-opacity">&gt;</span>
-              <span>{item.name}</span>
+              {item.name}
             </Link>
           ))}
           <Link
             href="/resume"
-            className="px-6 py-1.5 border border-[#0ea5e9]/40 text-slate-900 hover:bg-[#e0f2fe] hover:border-[#0ea5e9] transition-all flex items-center justify-center font-medium ml-4"
+            className="rounded-md border border-[var(--hairline)] px-3 py-1.5 text-sm text-[var(--ink)] transition-colors hover:border-[var(--accent)]"
           >
-            SYS. RESUME
+            Résumé
           </Link>
+          <ThemeToggle />
         </div>
-      </div>
-    </nav>
+
+        <div className="flex items-center gap-2 sm:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            aria-label="Toggle menu"
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-[var(--hairline)] text-[var(--muted)]"
+          >
+            {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          </button>
+        </div>
+      </nav>
+
+      {open && (
+        <div className="border-t border-[var(--hairline)] bg-[var(--paper)] px-6 py-4 sm:hidden">
+          <div className="flex flex-col gap-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="rounded-md px-2 py-2 text-sm text-[var(--muted)] hover:bg-[var(--surface-2)] hover:text-[var(--ink)]"
+              >
+                {item.name}
+              </Link>
+            ))}
+            <Link
+              href="/resume"
+              onClick={() => setOpen(false)}
+              className="rounded-md px-2 py-2 text-sm text-[var(--ink)] hover:bg-[var(--surface-2)]"
+            >
+              Résumé
+            </Link>
+          </div>
+        </div>
+      )}
+    </header>
   );
 }

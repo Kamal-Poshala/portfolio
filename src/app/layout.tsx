@@ -3,8 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CustomCursor from "@/components/CustomCursor";
-import AnimatedBackground from "@/components/AnimatedBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,54 +14,52 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const description =
+  "Kamal Poshala is a software engineer building full-stack and backend systems — real-time collaborative platforms, distributed REST services, and applied-AI pipelines for multilingual NLP and multimodal media.";
+
 export const metadata: Metadata = {
-  title: "Kamal Poshala | Full-Stack Software Engineer",
-  description:
-    "Full-Stack Software Engineer specializing in scalable web applications, backend systems, and applied machine learning.",
+  title: "Kamal Poshala — Software Engineer",
+  description,
   metadataBase: new URL("https://kamal-portfolio.vercel.app"),
+  authors: [{ name: "Kamal Poshala" }],
+  keywords: [
+    "Kamal Poshala",
+    "Software Engineer",
+    "Full-Stack Engineer",
+    "Backend Engineer",
+    "Applied Machine Learning",
+    "Distributed Systems",
+    "NLP",
+  ],
   openGraph: {
-    title: "Kamal Poshala | Full-Stack Software Engineer",
-    description:
-      "Portfolio showcasing full-stack projects, backend systems, distributed workflows, and applied machine learning.",
+    title: "Kamal Poshala — Software Engineer",
+    description,
     url: "https://kamal-portfolio.vercel.app",
-    siteName: "Kamal Poshala Portfolio",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Kamal Poshala Portfolio",
-      },
-    ],
+    siteName: "Kamal Poshala",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Kamal Poshala — Software Engineer" }],
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kamal Poshala | Full-Stack Software Developer",
-    description:
-      "Full-Stack Software Developer with backend, systems, and applied ML experience.",
+    title: "Kamal Poshala — Software Engineer",
+    description,
     images: ["/og-image.png"],
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();`;
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white/50 text-slate-900 cursor-none [&_*]:cursor-none`}
-      >
-        <AnimatedBackground />
-        <CustomCursor />
-        <div className="grid-overlay pointer-events-none z-[-1]" />
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <div className="grid-bg" aria-hidden />
         <Navbar />
-        <main className="w-full min-h-screen flex flex-col pt-10">
-          {children}
-        </main>
+        <main className="w-full">{children}</main>
         <Footer />
       </body>
     </html>

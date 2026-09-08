@@ -1,51 +1,40 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowLeft, Download } from "lucide-react";
+
+const RESUME_PATH = "/Kamal-Poshala-Resume.pdf";
+
+export const metadata: Metadata = {
+  title: "Résumé — Kamal Poshala",
+  description: "Résumé of Kamal Poshala, Software Engineer.",
+};
+
 export default function ResumePage() {
   return (
-    <section className="min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto relative z-10 bg-white/50">
-      <div className="mb-12 border-b border-[#0ea5e9]/20 pb-6 relative w-full">
-        {/* Minimal System Marker */}
-        <div className="absolute left-0 top-0 w-8 h-1 bg-[#0ea5e9]" />
+    <section className="mx-auto max-w-4xl px-6 pb-20 pt-28 sm:pt-36 lg:px-8">
+      <Link
+        href="/"
+        className="inline-flex items-center gap-2 text-sm text-[var(--muted)] transition-colors hover:text-[var(--ink)]"
+      >
+        <ArrowLeft className="h-4 w-4" /> Back
+      </Link>
 
-        <h1 className="text-3xl md:text-4xl font-light tracking-wide text-slate-900 uppercase mt-4">
-          System Record
-        </h1>
-
-        <p className="text-slate-500 font-mono text-sm mt-3 tracking-wide">
-          <span className="text-[#0ea5e9] mr-2">/</span>
-          Curriculum Vitae Access
-        </p>
-      </div>
-
-      <div className="relative group w-full">
-        {/* subtle highlight border */}
-        <div className="absolute inset-0 border border-[#0ea5e9]/30 bg-white/50 pointer-events-none z-0" />
-
-        <div className="relative z-10 w-full overflow-hidden shadow-[0_4px_30px_rgba(14,165,233,0.1)]">
-          {/* Top Decorative Header */}
-          <div className="w-full h-8 bg-slate-50/80 border-b border-[#0ea5e9]/30 flex items-center px-4 gap-2">
-            <div className="w-2.5 h-2.5 rounded-full bg-slate-50/800" />
-            <div className="w-2.5 h-2.5 rounded-full bg-[#0ea5e9]/30" />
-            <div className="w-2.5 h-2.5 rounded-full bg-[#0ea5e9]/10" />
-            <span className="ml-4 text-[10px] font-mono text-slate-500 uppercase tracking-widest">resume.pdf</span>
-          </div>
-
-          <iframe
-            src="/Resume4.pdf"
-            className="w-full h-[600px] sm:h-[800px] bg-white/50 border-0"
-            title="Resume PDF"
-          />
+      <div className="mt-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+        <div>
+          <h1 className="text-2xl font-semibold tracking-tight text-[var(--ink)] sm:text-3xl">Résumé</h1>
+          <p className="mt-2 text-sm text-[var(--muted)]">Kamal Poshala — Software Engineer</p>
         </div>
+        <a
+          href={RESUME_PATH}
+          download="Kamal-Poshala-Resume.pdf"
+          className="inline-flex items-center gap-2 rounded-md bg-[var(--accent)] px-4 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+        >
+          <Download className="h-4 w-4" /> Download PDF
+        </a>
       </div>
 
-      <div className="flex justify-center mt-10">
-        <a
-          href="/Resume4.pdf"
-          download="Kamal_Poshala_Resume.pdf"
-          className="group relative px-8 py-3 bg-white/50 border border-[#0ea5e9]/40 hover:bg-[#e0f2fe] text-slate-700 hover:text-slate-900 hover:border-[#0ea5e9] font-mono text-xs tracking-widest uppercase transition-all shadow-[0_4px_20px_rgba(14,165,233,0.1)]"
-        >
-          <span className="flex items-center gap-3">
-            <span className="text-[#0ea5e9]">&gt;</span> Download Databank
-          </span>
-        </a>
+      <div className="mt-8 overflow-hidden rounded-xl border border-[var(--hairline)] bg-[var(--surface-2)]">
+        <iframe src={RESUME_PATH} title="Kamal Poshala résumé" className="h-[70vh] min-h-[560px] w-full border-0" />
       </div>
     </section>
   );
