@@ -156,30 +156,10 @@ body {
 }
 
 /* ---------- Motion ---------- */
-/* Content is always visible by default. The scroll reveal is bound to scroll
-   position (not time) and guarded by @supports, so a throttled tab, an
-   unsupported browser, or disabled JS can never leave content hidden. */
-
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .reveal {
-      animation: fade-up linear both;
-      animation-timeline: view();
-      animation-range: entry 4% cover 20%;
-    }
-  }
-}
+/* No entrance animations: content is always rendered fully visible. Earlier
+   scroll- and time-driven reveals could leave text invisible in throttled or
+   background tabs, so they were removed. Interaction transitions (hover, theme)
+   still apply and are disabled under prefers-reduced-motion via the reset. */
 
 @media (prefers-reduced-motion: reduce) {
   html {

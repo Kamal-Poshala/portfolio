@@ -17,10 +17,18 @@ const geistMono = Geist_Mono({
 const description =
   "Kamal Poshala is a software engineer building full-stack and backend systems — real-time collaborative platforms, distributed REST services, and applied-AI pipelines for multilingual NLP and multimodal media.";
 
+// Resolves to the site's own origin: an explicit domain if set, otherwise the
+// Vercel production URL, otherwise localhost in dev.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
+
 export const metadata: Metadata = {
   title: "Kamal Poshala — Software Engineer",
   description,
-  metadataBase: new URL("https://kamal-portfolio.vercel.app"),
+  metadataBase: new URL(siteUrl),
   authors: [{ name: "Kamal Poshala" }],
   keywords: [
     "Kamal Poshala",
@@ -34,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kamal Poshala — Software Engineer",
     description,
-    url: "https://kamal-portfolio.vercel.app",
+    url: siteUrl,
     siteName: "Kamal Poshala",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Kamal Poshala — Software Engineer" }],
     locale: "en_US",
