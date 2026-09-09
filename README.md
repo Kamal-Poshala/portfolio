@@ -3,7 +3,7 @@
 Personal portfolio site. Software engineer working across full-stack product,
 backend systems, and applied machine learning.
 
-**Live:** https://kamal-portfolio.vercel.app
+**Live:** https://kamal-poshala-portfolio.vercel.app
 
 ## Stack
 

@@ -17,13 +17,13 @@ const geistMono = Geist_Mono({
 const description =
   "Kamal Poshala is a software engineer building full-stack and backend systems — real-time collaborative platforms, distributed REST services, and applied-AI pipelines for multilingual NLP and multimodal media.";
 
-// Resolves to the site's own origin: an explicit domain if set, otherwise the
-// Vercel production URL, otherwise localhost in dev.
+// The site's canonical origin. Override with NEXT_PUBLIC_SITE_URL if the domain
+// changes (e.g. a custom domain); localhost is used only in local dev.
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "http://localhost:3000");
+  (process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : "https://kamal-poshala-portfolio.vercel.app");
 
 export const metadata: Metadata = {
   title: "Kamal Poshala — Software Engineer",
