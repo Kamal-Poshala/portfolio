@@ -1,45 +1,65 @@
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
-import Research from "@/components/Research";
+import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
-import Section from "@/components/Section";
 import Education from "@/components/Education";
 import ContactSection from "@/components/ContactSection";
+import Section from "@/components/Section";
 
 export default function Home() {
   return (
-    <div className="space-y-0 bg-white/50">
+    <>
       <Hero />
 
-      <Section id="about" title="Professional Summary" subtitle="System Architecture & AI Overview">
+      <Section
+        id="about"
+        index="01"
+        title="About"
+        subtitle="Software engineer bridging full-stack product work and applied machine learning."
+      >
         <About />
       </Section>
 
-      <Section id="projects" title="Featured Projects" subtitle="Recent implementations in Distributed Systems & Scale.">
-        <Projects />
-      </Section>
-
-      <Section id="experience" title="Professional Experience" subtitle="Enterprise Observation & Engineering">
+      <Section
+        id="experience"
+        index="02"
+        title="Experience"
+        subtitle="Research and industry roles in systems engineering and data pipelines."
+      >
         <Experience />
       </Section>
 
-      <Section id="education" title="Education & Certifications" subtitle="Academic Milestones and Cloud Native Credentials">
-        <Education />
+      <Section
+        id="projects"
+        index="03"
+        title="Projects"
+        subtitle="Selected work across real-time systems, retrieval, and applied-AI pipelines."
+      >
+        <Projects />
       </Section>
 
-      <Section id="research" title="Academic Highlights" subtitle="Advanced Implementations and Research Labs">
-        <Research />
-      </Section>
-
-      <Section id="skills" title="Technical Toolkit" subtitle="Languages, Frameworks, and Infrastructure">
+      <Section
+        id="skills"
+        index="04"
+        title="Skills"
+        subtitle="Languages, frameworks, and infrastructure I work with regularly."
+      >
         <Skills />
       </Section>
 
-      <Section id="contact" title="Get in Touch" subtitle="Let's build scalable systems together.">
+      <Section id="education" index="05" title="Education">
+        <Education />
+      </Section>
+
+      <Section
+        id="contact"
+        index="06"
+        title="Contact"
+        subtitle="Open to full-time software engineering roles starting in 2026."
+      >
         <ContactSection />
       </Section>
-    </div>
+    </>
   );
 }

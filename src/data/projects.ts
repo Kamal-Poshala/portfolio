@@ -1,56 +1,78 @@
-export const projects = [
+export type Project = {
+  title: string;
+  tagline: string;
+  category: string;
+  year: string;
+  description: string;
+  highlight: string;
+  tech: string[];
+  repoLink?: string;
+  demoLink?: string;
+  paperLink?: string;
+  image: string;
+};
+
+export const projects: Project[] = [
   {
-    title: "SyncSpace — Real-Time Collaborative Workspace",
-    category: "Full-Stack / Tiptap & Socket.IO",
+    title: "SyncSpace",
+    tagline: "Real-Time Collaborative Workspace",
+    category: "Full-Stack · Distributed Systems",
+    year: "2025",
     description:
-      "Architected real-time collaborative platform supporting concurrent document editing, live chat, and presence tracking. Designed room-based event-driven communication with modular socket handlers. Implemented JWT-secured REST and WebSocket auth with RBAC. Deployed backend on Koyeb and frontend on Vercel.",
+      "A collaborative platform with WebSocket-based concurrent document editing, live presence tracking, and JWT-secured role-based access control. Room-based, event-driven communication is handled by modular socket handlers; the backend runs on Koyeb and the frontend on Vercel.",
+    highlight: "60% lower MongoDB write load under sustained edit bursts via debounced buffering",
     tech: ["React", "TypeScript", "Node.js", "Express", "Socket.IO", "MongoDB"],
     repoLink: "https://github.com/Kamal-Poshala/syncspace",
     demoLink: "https://syncspace-frontend-six.vercel.app/",
-    image: "/projects/syncspace.png"
+    image: "/projects/syncspace.webp",
   },
   {
-    title: "Internship Program Management System (IPMS)",
-    category: "Full-Stack / Backend",
+    title: "DeepDub",
+    tagline: "Automated Video Dubbing & Lip-Sync",
+    category: "Applied ML · Multimodal Pipeline",
+    year: "2025",
     description:
-      "Designed distributed approval workflow with role-based access control and secure JWT authentication. Implemented 15+ RESTful endpoints handling 1,000+ transaction events with centralized logging. Automated email remindes using cron, reducing approval turnaround by 40%.",
-    tech: ["Node.js", "MongoDB", "Express", "REST APIs", "Cron"],
-    repoLink: "https://github.com/Kamal-Poshala/IPMS",
-    image: "/projects/ipms.png"
-  },
-  {
-    title: "CogniFetch — Search and Retrieval Engine",
-    category: "Detailed Full-Stack / NLP",
-    description:
-      "Developed TF-IDF based search engine indexing 10K+ academic documents with relevance scoring. Built OCR and NLP ingestion pipeline transforming 2K+ PDFs into structured datasets. Implemented cosine similarity ranking and reduced query latency by 45%.",
-    tech: ["Node.js", "MongoDB", "NLP", "React", "OCR"],
-    repoLink: "https://github.com/Kamal-Poshala/CogniFetch",
-    image: "/projects/cognifetch.png"
+      "An end-to-end multimodal pipeline — automatic speech recognition, translation, text-to-speech, and GAN-based lip sync — orchestrated asynchronously with FastAPI, Celery, and Redis. Modular fault isolation keeps each stage independently recoverable for videos up to 10 minutes.",
+    highlight: "ASR → translation → TTS → GAN lip-sync, fully async with per-stage fault isolation",
+    tech: ["PyTorch", "Whisper", "Wav2Lip", "FastAPI", "Celery", "Redis"],
+    repoLink: "https://github.com/Kamal-Poshala/DeepDubAI",
+    image: "/projects/deepdub.webp",
   },
   {
     title: "Multilingual Polarization Detection",
-    category: "NLP / Machine Learning",
+    tagline: "SemEval 2026 — 22 Languages",
+    category: "Applied ML · Multilingual NLP",
+    year: "2025",
     description:
-      "Developed a high-performance multilingual analysis engine leveraging transformer-based models (mBERT) for accurate polarization detection and sentiment analysis across language barriers.",
-    tech: ["Python", "PyTorch", "HuggingFace", "mBERT"],
+      "A classification pipeline spanning 22 languages built on mBERT and mT5 with parameter-efficient LoRA fine-tuning. The approach matches full fine-tuning quality while training a fraction of the parameters.",
+    highlight: "Macro F1 of 0.87 with 60% fewer trainable parameters than full fine-tuning",
+    tech: ["PyTorch", "LoRA / PEFT", "mBERT", "mT5", "scikit-learn"],
     repoLink: "https://github.com/Kamal-Poshala/multilingual_polarization_detection",
-    demoLink: "/multilingual.pdf",
-    image: "/projects/polarization.png"
+    paperLink: "/multilingual.pdf",
+    image: "/projects/polarization.webp",
   },
   {
-    title: "AI Book Summarizer & Vector Store",
-    category: "AI / LangChain",
+    title: "CogniFetch",
+    tagline: "NLP Search & Retrieval Engine",
+    category: "Full-Stack · Information Retrieval",
+    year: "2024",
     description:
-      "Engineered an automated summarization tool integrating ChromaDB and HuggingFace embeddings for precise vector storage and retrieval of long-context book texts via semantic search.",
-    tech: ["Python", "LangChain", "ChromaDB", "HuggingFace"],
-    image: "/projects/book_summarizer.png"
+      "A retrieval engine with cosine-similarity ranking over 10,000+ academic documents, backed by an inverted-index design for fast lookups. An OCR and NLP ingestion pipeline converts scanned PDFs into structured, searchable data, paired with a React front end for interactive document search.",
+    highlight: "Sub-50 ms p95 query latency — a 45% reduction — over 10,000+ documents",
+    tech: ["Node.js", "TF-IDF", "MongoDB", "React", "OCR"],
+    repoLink: "https://github.com/Kamal-Poshala/CogniFetch",
+    image: "/projects/cognifetch.webp",
   },
   {
-    title: "Automated Video Dubbing Engine (Deepdub)",
-    category: "AI / Audio Processing",
+    title: "IPMS",
+    tagline: "Internship Program Management System",
+    category: "Backend · Workflow Automation",
+    year: "2025",
     description:
-      "Built a multi-language video dubbing pipeline replacing traditional translation dependencies with deep-translator for stable lip-sync TTS conversion and automated audio track replacement.",
-    tech: ["Python", "Deep-Translator", "TTS", "FFmpeg"],
-    image: "/projects/deepdub.png"
-  }
+      "A distributed multi-role approval workflow with role-based access control and JWT authentication, exposing 15+ RESTful endpoints with centralized logging. Scheduled cron jobs send automated email reminders to keep approvals moving.",
+    highlight: "1,000+ transaction events handled; approval turnaround cut 40% via automated reminders",
+    tech: ["Node.js", "Express", "MongoDB", "REST APIs", "Cron"],
+    repoLink: "https://github.com/Kamal-Poshala/IPMS",
+    image: "/projects/ipms.webp",
+  },
 ];

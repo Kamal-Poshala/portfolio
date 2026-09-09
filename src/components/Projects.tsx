@@ -1,65 +1,83 @@
-"use client";
-
+import Image from "next/image";
+import { ArrowUpRight, FileText, Github } from "lucide-react";
 import { projects } from "@/data/projects";
-import { Github, ExternalLink, Cpu } from "lucide-react";
-import { motion } from "framer-motion";
+import Reveal from "./Reveal";
 
 export default function Projects() {
-    return (
-        <div className="grid grid-cols-1 gap-10 pb-12 w-full max-w-4xl mx-auto">
-            {projects.map((project, index) => {
-                return (
-                    <motion.div
-                        key={index}
-                        className="group relative flex flex-col bg-white/50 backdrop-blur-sm border border-[#0ea5e9]/20 shadow-[0_4px_20px_rgba(14,165,233,0.05)] transition-all duration-300 z-10 overflow-hidden hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(14,165,233,0.15)] rounded-md"
-                    >
-                        <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-[#0ea5e9]/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 z-20" />
+  return (
+    <div className="flex flex-col gap-6">
+      {projects.map((p) => (
+        <Reveal key={p.title}>
+          <article className="card card-hover grid grid-cols-1 overflow-hidden md:grid-cols-[1fr_1.4fr]">
+            <div className="relative aspect-[16/10] border-b border-[var(--hairline)] bg-[var(--surface-2)] md:aspect-auto md:border-b-0 md:border-r">
+              <Image
+                src={p.image}
+                alt={`${p.title} — ${p.tagline}`}
+                fill
+                sizes="(min-width: 768px) 440px, 100vw"
+                className="object-cover"
+              />
+            </div>
 
-                        <div className="p-8 sm:p-10 flex flex-col relative z-20 w-full">
-                            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
-                                <div>
-                                    <div className="flex items-center gap-2 mb-2">
-                                        <Cpu className="w-5 h-5 text-[#0ea5e9]" />
-                                        <p className="text-xs font-mono tracking-widest text-[#0ea5e9] uppercase">
-                                            {project.category}
-                                        </p>
-                                    </div>
-                                    <h3 className="text-2xl font-medium text-slate-900 group-hover:text-[#0ea5e9] transition-colors leading-tight">
-                                        {project.title}
-                                    </h3>
-                                </div>
-                                <div className="flex gap-3 shrink-0">
-                                    {project.repoLink && (
-                                        <a href={project.repoLink} target="_blank" rel="noopener noreferrer" className="p-2.5 text-slate-500 hover:text-[#0ea5e9] hover:-translate-y-1 transition-all bg-white border border-[#0ea5e9]/30 hover:border-[#0ea5e9] hover:bg-[#e0f2fe] rounded-sm">
-                                            <Github className="w-5 h-5" />
-                                        </a>
-                                    )}
-                                    {project.demoLink && (
-                                        <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="p-2.5 text-slate-500 hover:text-[#0ea5e9] hover:-translate-y-1 transition-all bg-white border border-[#0ea5e9]/30 hover:border-[#0ea5e9] hover:bg-[#e0f2fe] rounded-sm">
-                                            <ExternalLink className="w-5 h-5" />
-                                        </a>
-                                    )}
-                                </div>
-                            </div>
+            <div className="flex flex-col p-6 sm:p-7">
+              <div className="flex items-center justify-between gap-4">
+                <span className="label text-[var(--accent)]">{p.category}</span>
+                <span className="label">{p.year}</span>
+              </div>
 
-                            <p className="text-slate-600 font-light text-base leading-relaxed mb-8 max-w-3xl">
-                                {project.description}
-                            </p>
+              <h3 className="mt-3 text-lg font-semibold text-[var(--ink)]">{p.title}</h3>
+              <p className="text-sm text-[var(--muted)]">{p.tagline}</p>
 
-                            <div className="flex flex-wrap gap-2 mt-auto">
-                                {project.tech.map((t) => (
-                                    <span
-                                        key={t}
-                                        className="px-3 py-1.5 text-xs uppercase font-mono text-slate-600 border border-[#0ea5e9]/20 bg-white group-hover:border-[#0ea5e9]/40 group-hover:text-[#0ea5e9] transition-colors rounded-md shadow-sm"
-                                    >
-                                        {t}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    </motion.div>
-                );
-            })}
-        </div>
-    );
+              <p className="mt-3 text-sm leading-relaxed text-[var(--ink-soft)]">{p.description}</p>
+
+              <p className="mt-4 border-l-2 border-[var(--accent)] pl-3 text-sm font-medium text-[var(--ink)]">
+                {p.highlight}
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {p.tech.map((t) => (
+                  <span key={t} className="tag">
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-5 flex flex-wrap items-center gap-4 pt-1">
+                {p.repoLink && (
+                  <a
+                    href={p.repoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm text-[var(--muted)] transition-colors hover:text-[var(--ink)]"
+                  >
+                    <Github className="h-4 w-4" /> Code
+                  </a>
+                )}
+                {p.demoLink && (
+                  <a
+                    href={p.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm text-[var(--muted)] transition-colors hover:text-[var(--ink)]"
+                  >
+                    <ArrowUpRight className="h-4 w-4" /> Live demo
+                  </a>
+                )}
+                {p.paperLink && (
+                  <a
+                    href={p.paperLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm text-[var(--muted)] transition-colors hover:text-[var(--ink)]"
+                  >
+                    <FileText className="h-4 w-4" /> Paper
+                  </a>
+                )}
+              </div>
+            </div>
+          </article>
+        </Reveal>
+      ))}
+    </div>
+  );
 }

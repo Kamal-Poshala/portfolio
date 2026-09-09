@@ -5,79 +5,184 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* ---------- Design tokens ---------- */
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
+  --paper: #fafafa;
+  --surface: #ffffff;
+  --surface-2: #f4f4f5;
+  --ink: #18181b;
+  --ink-soft: #3f3f46;
+  --muted: #52525b;
+  --faint: #a1a1aa;
+  --hairline: #e4e4e7;
+  --accent: #059669;
+  --accent-ink: #047857;
+  --accent-wash: rgba(5, 150, 105, 0.08);
+  --shadow: 0 1px 2px rgba(24, 24, 27, 0.04), 0 8px 24px rgba(24, 24, 27, 0.06);
+  color-scheme: light;
+}
 
-  --primary: #0ea5e9;
-  --primary-foreground: #ffffff;
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0c0c0d;
+    --surface: #161617;
+    --surface-2: #1c1c1f;
+    --ink: #fafafa;
+    --ink-soft: #d4d4d8;
+    --muted: #a1a1aa;
+    --faint: #71717a;
+    --hairline: #27272a;
+    --accent: #10b981;
+    --accent-ink: #34d399;
+    --accent-wash: rgba(16, 185, 129, 0.1);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.5);
+    color-scheme: dark;
+  }
+}
 
-  --secondary: #e0f2fe;
-  --secondary-foreground: #0f172a;
+:root[data-theme="dark"] {
+  --paper: #0c0c0d;
+  --surface: #161617;
+  --surface-2: #1c1c1f;
+  --ink: #fafafa;
+  --ink-soft: #d4d4d8;
+  --muted: #a1a1aa;
+  --faint: #71717a;
+  --hairline: #27272a;
+  --accent: #10b981;
+  --accent-ink: #34d399;
+  --accent-wash: rgba(16, 185, 129, 0.1);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+}
 
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
+* {
+  border-color: var(--hairline);
+}
 
-  --card: rgba(255, 255, 255, 0.85);
-  --card-foreground: #0f172a;
-
-  --border: rgba(14, 165, 233, 0.2);
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), sans-serif;
-  position: relative;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
-/* Minimal Scrollbar */
+::selection {
+  background: var(--accent-wash);
+  color: var(--ink);
+}
+
+/* ---------- Scrollbar ---------- */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  height: 10px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #f8fafc;
+  background: var(--paper);
 }
-
 ::-webkit-scrollbar-thumb {
-  background: rgba(14, 165, 233, 0.4);
-  border-radius: 4px;
+  background: var(--hairline);
+  border-radius: 999px;
+  border: 2px solid var(--paper);
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(14, 165, 233, 0.7);
+  background: var(--faint);
 }
 
-/* Glass Card */
-.glass-card {
-  background: var(--card);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid var(--border);
-  box-shadow: 0 4px 30px rgba(14, 165, 233, 0.05);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+/* ---------- Primitives ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 0.75rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card-hover:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--hairline));
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
 }
 
-.glass-card:hover {
-  border-color: rgba(14, 165, 233, 0.4);
-  box-shadow: 0 8px 40px rgba(14, 165, 233, 0.15);
+.label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
-/* Grid overlay for subtle architecture background */
-.grid-overlay {
+.tag {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: var(--surface-2);
+  border: 1px solid var(--hairline);
+  border-radius: 0.375rem;
+  padding: 0.25rem 0.5rem;
+  white-space: nowrap;
+}
+
+.link-underline {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.25s ease;
+}
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+/* Faint architectural grid, theme-aware, non-interactive */
+.grid-bg {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
+  z-index: -1;
   pointer-events: none;
-  z-index: -2;
   background-image:
-    linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
-  -webkit-mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
+    linear-gradient(var(--hairline) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
+  background-size: 72px 72px;
+  opacity: 0.4;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 10%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 10%, transparent 75%);
+}
+
+/* ---------- Motion ---------- */
+/* Content is always visible by default. The scroll reveal is bound to scroll
+   position (not time) and guarded by @supports, so a throttled tab, an
+   unsupported browser, or disabled JS can never leave content hidden. */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: fade-up linear both;
+      animation-timeline: view();
+      animation-range: entry 4% cover 20%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
