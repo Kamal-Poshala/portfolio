@@ -14,7 +14,7 @@ export default function Projects() {
                 src={p.image}
                 alt={`${p.title} — ${p.tagline}`}
                 fill
-                sizes="(max-width: 768px) 100vw, 40vw"
+                sizes="(min-width: 768px) 440px, 100vw"
                 className="object-cover"
               />
             </div>

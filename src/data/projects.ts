@@ -24,7 +24,7 @@ export const projects: Project[] = [
     tech: ["React", "TypeScript", "Node.js", "Express", "Socket.IO", "MongoDB"],
     repoLink: "https://github.com/Kamal-Poshala/syncspace",
     demoLink: "https://syncspace-frontend-six.vercel.app/",
-    image: "/projects/syncspace.png",
+    image: "/projects/syncspace.webp",
   },
   {
     title: "DeepDub",
@@ -35,8 +35,8 @@ export const projects: Project[] = [
       "An end-to-end multimodal pipeline — automatic speech recognition, translation, text-to-speech, and GAN-based lip sync — orchestrated asynchronously with FastAPI, Celery, and Redis. Modular fault isolation keeps each stage independently recoverable for videos up to 10 minutes.",
     highlight: "ASR → translation → TTS → GAN lip-sync, fully async with per-stage fault isolation",
     tech: ["PyTorch", "Whisper", "Wav2Lip", "FastAPI", "Celery", "Redis"],
-    repoLink: "https://github.com/Kamal-Poshala/DeepDub",
-    image: "/projects/deepdub.png",
+    repoLink: "https://github.com/Kamal-Poshala/DeepDubAI",
+    image: "/projects/deepdub.webp",
   },
   {
     title: "Multilingual Polarization Detection",
@@ -49,7 +49,7 @@ export const projects: Project[] = [
     tech: ["PyTorch", "LoRA / PEFT", "mBERT", "mT5", "scikit-learn"],
     repoLink: "https://github.com/Kamal-Poshala/multilingual_polarization_detection",
     paperLink: "/multilingual.pdf",
-    image: "/projects/polarization.png",
+    image: "/projects/polarization.webp",
   },
   {
     title: "CogniFetch",
@@ -61,7 +61,7 @@ export const projects: Project[] = [
     highlight: "Sub-50 ms p95 query latency — a 45% reduction — over 10,000+ documents",
     tech: ["Node.js", "TF-IDF", "MongoDB", "React", "OCR"],
     repoLink: "https://github.com/Kamal-Poshala/CogniFetch",
-    image: "/projects/cognifetch.png",
+    image: "/projects/cognifetch.webp",
   },
   {
     title: "IPMS",
@@ -73,6 +73,6 @@ export const projects: Project[] = [
     highlight: "1,000+ transaction events handled; approval turnaround cut 40% via automated reminders",
     tech: ["Node.js", "Express", "MongoDB", "REST APIs", "Cron"],
     repoLink: "https://github.com/Kamal-Poshala/IPMS",
-    image: "/projects/ipms.png",
+    image: "/projects/ipms.webp",
   },
 ];
