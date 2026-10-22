@@ -34,7 +34,7 @@ export default function Home() {
         id="projects"
         index="03"
         title="Projects"
-        subtitle="Selected work across real-time systems, retrieval, and applied-AI pipelines."
+        subtitle="Selected work across LLM applications, real-time systems, retrieval, and ML pipelines."
       >
         <Projects />
       </Section>
