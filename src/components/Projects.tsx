@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowUpRight, FileText, Github } from "lucide-react";
+import { ArrowUpRight, FileText, Github, Lock } from "lucide-react";
 import { projects } from "@/data/projects";
 import Reveal from "./Reveal";
 
@@ -72,6 +72,11 @@ export default function Projects() {
                   >
                     <FileText className="h-4 w-4" /> Paper
                   </a>
+                )}
+                {p.private && (
+                  <span className="inline-flex items-center gap-1.5 text-sm text-[var(--faint)]">
+                    <Lock className="h-4 w-4" /> Private repository
+                  </span>
                 )}
               </div>
             </div>
