@@ -2,7 +2,7 @@ import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[var(--hairline)]">
+    <footer className="dark-scope border-t border-[var(--hairline)] bg-[var(--paper)]">
       <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 py-10 sm:flex-row lg:px-8">
         <p className="text-sm text-[var(--muted)]">
           © {new Date().getFullYear()} Kamal Poshala · Built with Next.js &amp; Tailwind

@@ -1,10 +1,25 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 /**
- * Passthrough wrapper. Entrance animations were removed after scroll/time-driven
- * reveals were found to leave content invisible in throttled tabs; kept as a
- * thin component so call sites don't churn, and in case a safe reveal returns.
+ * Scroll-reveal wrapper. It renders visible markup; `MotionProvider` decides at
+ * runtime whether to hide-then-reveal it (only when it starts below the fold).
  */
-export default function Reveal({ children, className }: { children: ReactNode; className?: string }) {
-  return className ? <div className={className}>{children}</div> : <>{children}</>;
+export default function Reveal({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <div
+      data-reveal
+      className={className}
+      style={delay ? ({ "--d": `${delay}ms` } as CSSProperties) : undefined}
+    >
+      {children}
+    </div>
+  );
 }

@@ -24,12 +24,15 @@ export default function ContactSection() {
 
   return (
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1fr]">
-      <div className="space-y-4 text-[15px] leading-relaxed text-[var(--ink-soft)]">
-        <p>
-          I&apos;m looking for full-time software engineering roles starting in 2026 — full-stack,
-          backend, or applied-AI teams. Based in Norman, OK and open to relocation.
+      <div className="space-y-5">
+        <p className="text-3xl font-semibold leading-tight tracking-tight text-[var(--ink)] sm:text-4xl">
+          Let&apos;s build something that <span className="text-gradient-accent">holds up</span>.
         </p>
-        <p>The fastest way to reach me is email.</p>
+        <p className="text-[15px] leading-relaxed text-[var(--ink-soft)]">
+          I&apos;m looking for full-time software engineering roles — full-stack, backend, or
+          applied-AI teams. Based in Norman, OK and open to relocation. The fastest way to reach me is
+          email.
+        </p>
       </div>
 
       <div className="card p-6">
