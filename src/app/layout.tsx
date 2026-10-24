@@ -23,7 +23,7 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
   (process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
-    : "https://kamal-poshala-portfolio.vercel.app");
+    : "https://portfolio-chi-taupe-80.vercel.app");
 
 export const metadata: Metadata = {
   title: "Kamal Poshala — Software Engineer",
