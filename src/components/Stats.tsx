@@ -8,9 +8,9 @@ const stats = [
   { to: 25, suffix: "%", label: "faster Java module at Persistent Systems" },
 ];
 
-export default function Stats() {
+export default function Stats({ className = "" }: { className?: string }) {
   return (
-    <Reveal className="mt-12">
+    <Reveal className={className}>
       <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-[var(--hairline)] bg-[var(--hairline)] sm:grid-cols-4">
         {stats.map((s) => (
           <div key={s.label} className="bg-[var(--surface)] p-5">

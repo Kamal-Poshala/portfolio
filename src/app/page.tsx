@@ -11,14 +11,17 @@ import Section from "@/components/Section";
 export default function Home() {
   return (
     <>
-      <Hero />
-      <TechMarquee />
+      <div className="band-hero dark-scope">
+        <div className="blob -right-24 top-10 h-80 w-80" aria-hidden />
+        <Hero />
+        <TechMarquee />
+      </div>
 
       <Section
         id="about"
         index="01"
         title="About"
-        subtitle="Software engineer bridging full-stack product work and applied machine learning."
+        subtitle="A software engineer who bridges full-stack product work and applied machine learning."
       >
         <About />
       </Section>
@@ -27,6 +30,7 @@ export default function Home() {
         id="experience"
         index="02"
         title="Experience"
+        tone="tint"
         subtitle="Research and industry roles in systems engineering and data pipelines."
       >
         <Experience />
@@ -36,7 +40,7 @@ export default function Home() {
         id="projects"
         index="03"
         title="Projects"
-        subtitle="Selected work across LLM applications, real-time systems, retrieval, and ML pipelines."
+        subtitle="Selected work across LLM applications, real-time systems, retrieval, and ML pipelines. Click any card for the details."
       >
         <Projects />
       </Section>
@@ -45,6 +49,7 @@ export default function Home() {
         id="skills"
         index="04"
         title="Skills"
+        tone="tint"
         subtitle="Languages, frameworks, and infrastructure I work with regularly."
       >
         <Skills />
@@ -58,7 +63,8 @@ export default function Home() {
         id="contact"
         index="06"
         title="Contact"
-        subtitle="Open to full-time software engineering roles starting in 2026."
+        tone="dark"
+        subtitle="Open to full-time software engineering roles."
       >
         <ContactSection />
       </Section>

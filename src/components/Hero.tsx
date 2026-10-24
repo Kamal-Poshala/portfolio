@@ -19,7 +19,7 @@ export default function Hero() {
           </p>
 
           <h1
-            className="rise text-4xl font-semibold leading-[1.08] tracking-tight text-[var(--ink)] sm:text-6xl"
+            className="rise text-gradient pb-1 text-5xl font-semibold leading-[1.05] tracking-tight sm:text-7xl"
             style={step(1)}
           >
             Kamal Poshala
@@ -41,14 +41,14 @@ export default function Hero() {
           <div className="rise flex flex-wrap items-center gap-3 pt-2" style={step(4)}>
             <Link
               href="/#projects"
-              className="group inline-flex items-center gap-2 rounded-md bg-[var(--accent)] px-4 py-2.5 text-sm font-medium text-white transition-all hover:opacity-90 hover:shadow-[0_8px_24px_-8px_var(--accent)]"
+              className="btn-primary group inline-flex items-center gap-2 rounded-md px-5 py-3 text-sm font-medium"
             >
               View projects
               <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
             <Link
               href="/resume"
-              className="inline-flex items-center gap-2 rounded-md border border-[var(--hairline)] px-4 py-2.5 text-sm font-medium text-[var(--ink)] transition-colors hover:border-[var(--accent)]"
+              className="inline-flex items-center gap-2 rounded-md border border-[var(--hairline)] bg-white/[0.03] px-5 py-3 text-sm font-medium text-[var(--ink)] transition-colors hover:border-[var(--accent)]"
             >
               Résumé
             </Link>

@@ -11,6 +11,7 @@ export type Project = {
   paperLink?: string;
   /** Source lives in a private repository, so no code link is shown. */
   private?: boolean;
+  kind: "ai" | "fullstack" | "backend";
   image: string;
 };
 
@@ -25,6 +26,7 @@ export const projects: Project[] = [
     highlight: "Retrieval quality (hit-rate@3) is an automated check in CI, alongside backend and frontend tests",
     tech: ["Next.js", "TypeScript", "FastAPI", "PostgreSQL", "pgvector", "sentence-transformers", "LLM tool use", "Docker"],
     private: true,
+    kind: "ai",
     image: "/projects/docmind.webp",
   },
   {
@@ -37,6 +39,7 @@ export const projects: Project[] = [
     highlight: "On synthetic demo data, backtest error ~13% below seasonal-naive and ~32% below a moving average",
     tech: ["FastAPI", "scikit-learn", "pandas", "SQLAlchemy", "PostgreSQL", "Claude API", "React", "TypeScript", "Docker"],
     private: true,
+    kind: "ai",
     image: "/projects/stocksense.webp",
   },
   {
@@ -50,6 +53,7 @@ export const projects: Project[] = [
     tech: ["React", "TypeScript", "Node.js", "Express", "Socket.IO", "MongoDB"],
     repoLink: "https://github.com/Kamal-Poshala/syncspace",
     demoLink: "https://syncspace-frontend-six.vercel.app/",
+    kind: "fullstack",
     image: "/projects/syncspace.webp",
   },
   {
@@ -62,6 +66,7 @@ export const projects: Project[] = [
     highlight: "ASR → translation → TTS → GAN lip-sync, fully async with per-stage fault isolation",
     tech: ["PyTorch", "Whisper", "Wav2Lip", "FastAPI", "Celery", "Redis"],
     repoLink: "https://github.com/Kamal-Poshala/DeepDubAI",
+    kind: "ai",
     image: "/projects/deepdub.webp",
   },
   {
@@ -75,6 +80,7 @@ export const projects: Project[] = [
     tech: ["PyTorch", "LoRA / PEFT", "mBERT", "mT5", "scikit-learn"],
     repoLink: "https://github.com/Kamal-Poshala/multilingual_polarization_detection",
     paperLink: "/multilingual.pdf",
+    kind: "ai",
     image: "/projects/polarization.webp",
   },
   {
@@ -87,6 +93,7 @@ export const projects: Project[] = [
     highlight: "Sub-50 ms p95 query latency — a 45% reduction — over 10,000+ documents",
     tech: ["Node.js", "TF-IDF", "MongoDB", "React", "OCR"],
     repoLink: "https://github.com/Kamal-Poshala/CogniFetch",
+    kind: "fullstack",
     image: "/projects/cognifetch.webp",
   },
   {
@@ -99,6 +106,7 @@ export const projects: Project[] = [
     highlight: "1,000+ transaction events handled; approval turnaround cut 40% via automated reminders",
     tech: ["Node.js", "Express", "MongoDB", "REST APIs", "Cron"],
     repoLink: "https://github.com/Kamal-Poshala/IPMS",
+    kind: "backend",
     image: "/projects/ipms.webp",
   },
   {
@@ -111,6 +119,7 @@ export const projects: Project[] = [
     highlight: "Delivered end to end from a written technical scope, backed by 56 passing automated tests",
     tech: ["Python", "Streamlit", "SQLite", "PostgreSQL", "Data Validation"],
     private: true,
+    kind: "fullstack",
     image: "/projects/srl-ancestry.webp",
   },
 ];

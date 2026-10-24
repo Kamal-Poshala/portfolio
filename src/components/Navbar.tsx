@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
@@ -14,6 +15,7 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
@@ -40,7 +42,7 @@ export default function Navbar() {
       className={`fixed inset-x-0 top-0 z-50 border-b transition-colors ${
         scrolled
           ? "border-[var(--hairline)] bg-[color-mix(in_srgb,var(--paper)_88%,transparent)] backdrop-blur-md"
-          : "border-transparent"
+          : `border-transparent ${pathname === "/" ? "dark-scope" : ""}`
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6 lg:px-8">
