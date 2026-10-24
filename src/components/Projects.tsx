@@ -8,14 +8,14 @@ export default function Projects() {
     <div className="flex flex-col gap-6">
       {projects.map((p) => (
         <Reveal key={p.title}>
-          <article className="card card-hover flex flex-col overflow-hidden">
-            <div className="relative aspect-[16/10] border-b border-[var(--hairline)] bg-[var(--surface-2)]">
+          <article className="group card card-hover spot flex flex-col overflow-hidden">
+            <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--hairline)] bg-[var(--surface-2)]">
               <Image
                 src={p.image}
                 alt={`${p.title} — ${p.tagline}`}
                 fill
                 sizes="(min-width: 1024px) 960px, 100vw"
-                className="object-cover"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
               />
             </div>
 

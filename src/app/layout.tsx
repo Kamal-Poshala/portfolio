@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import MotionProvider from "@/components/MotionProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,7 +57,9 @@ export const metadata: Metadata = {
   },
 };
 
-const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();`;
+// Runs before first paint: restores the saved theme and, unless the visitor prefers
+// reduced motion, enables the motion layer (every animation is gated on this class).
+const themeScript = `(function(){var d=document.documentElement;try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){d.setAttribute('data-theme',t);}}catch(e){}try{if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('motion-ready');}}catch(e){}})();`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -66,6 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div className="grid-bg" aria-hidden />
+        <MotionProvider />
         <Navbar />
         <main className="w-full">{children}</main>
         <Footer />

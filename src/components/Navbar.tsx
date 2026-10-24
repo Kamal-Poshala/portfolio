@@ -16,9 +16,20 @@ const navItems = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const ids = navItems.map((n) => n.href.replace("/#", ""));
+    const onScroll = () => {
+      setScrolled(window.scrollY > 8);
+      // Active section = the last one whose top has passed the header line.
+      let current = "";
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 140) current = id;
+      }
+      setActive(current);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -38,15 +49,23 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden items-center gap-7 sm:flex">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--ink)]"
-            >
-              {item.name}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const isActive = active === item.href.replace("/#", "");
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                aria-current={isActive ? "location" : undefined}
+                className={`relative text-sm transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:origin-left after:bg-[var(--accent)] after:transition-transform after:duration-300 hover:text-[var(--ink)] ${
+                  isActive
+                    ? "text-[var(--ink)] after:scale-x-100"
+                    : "text-[var(--muted)] after:scale-x-0 hover:after:scale-x-100"
+                }`}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
           <Link
             href="/resume"
             className="rounded-md border border-[var(--hairline)] px-3 py-1.5 text-sm text-[var(--ink)] transition-colors hover:border-[var(--accent)]"

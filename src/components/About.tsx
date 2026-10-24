@@ -1,4 +1,6 @@
 import { Boxes, Layers, Sparkles } from "lucide-react";
+import Reveal from "./Reveal";
+import Stats from "./Stats";
 
 const focus = [
   {
@@ -20,10 +22,11 @@ const focus = [
 
 export default function About() {
   return (
+    <>
     <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr]">
       <div className="space-y-5 text-[15px] leading-relaxed text-[var(--ink-soft)]">
         <p>
-          I&apos;m a software engineer finishing an M.S. in Computer Science at the University of
+          I&apos;m a software engineer with an M.S. in Computer Science from the University of
           Oklahoma. My work spans full-stack web development, backend systems, and applied machine
           learning — scalable REST APIs and React/TypeScript front ends alongside production-oriented
           ML pipelines.
@@ -41,14 +44,18 @@ export default function About() {
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
-        {focus.map(({ icon: Icon, title, body }) => (
-          <div key={title} className="card p-5">
-            <Icon className="h-5 w-5 text-[var(--accent)]" />
-            <h3 className="mt-3 text-sm font-semibold text-[var(--ink)]">{title}</h3>
-            <p className="mt-1.5 text-sm leading-relaxed text-[var(--muted)]">{body}</p>
-          </div>
+        {focus.map(({ icon: Icon, title, body }, i) => (
+          <Reveal key={title} delay={i * 90}>
+            <div className="card card-hover spot h-full p-5">
+              <Icon className="h-5 w-5 text-[var(--accent)]" />
+              <h3 className="mt-3 text-sm font-semibold text-[var(--ink)]">{title}</h3>
+              <p className="mt-1.5 text-sm leading-relaxed text-[var(--muted)]">{body}</p>
+            </div>
+          </Reveal>
         ))}
       </div>
     </div>
+    <Stats />
+    </>
   );
 }

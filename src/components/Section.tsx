@@ -23,6 +23,7 @@ export default function Section({ id, index, title, subtitle, children }: Sectio
           {subtitle && (
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--muted)]">{subtitle}</p>
           )}
+          <div className="draw mt-5 h-px w-14 bg-[var(--accent)]" aria-hidden />
         </Reveal>
         {children}
       </div>
