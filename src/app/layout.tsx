@@ -68,7 +68,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <div className="grid-bg" aria-hidden />
         <MotionProvider />
         <Navbar />
         <main className="w-full">{children}</main>

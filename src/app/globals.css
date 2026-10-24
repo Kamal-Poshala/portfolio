@@ -140,21 +140,6 @@ body {
   background-size: 100% 1px;
 }
 
-/* Faint architectural grid, theme-aware, non-interactive */
-.grid-bg {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image:
-    linear-gradient(var(--hairline) 1px, transparent 1px),
-    linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
-  background-size: 72px 72px;
-  opacity: 0.4;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 10%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 10%, transparent 75%);
-}
-
 /* ---------- Motion ----------
    Rule: content is visible by default. Nothing is hidden by CSS alone.
    - `html.motion-ready` is added by an inline script before first paint, and only
